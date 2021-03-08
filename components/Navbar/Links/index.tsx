@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import Img, { Svg } from 'react-optimized-image'
+import { Svg } from 'react-optimized-image'
 
 import shop from 'images/shop.svg'
-import bit from 'images/bit.png'
+import bit from 'images/bit.svg'
 import plus from 'images/plus.svg'
 
 import styles from './index.module.scss'
@@ -17,7 +17,7 @@ const NavbarLinks = () => (
 		</Link>
 		<Link href="/bits">
 			<a className={styles.bits}>
-				<Img className={styles.bitsIcon} src={bit} webp url />
+				<Svg className={styles.bitsIcon} src={bit} />
 				1,420
 				<Svg className={styles.addBits} src={plus} />
 			</a>

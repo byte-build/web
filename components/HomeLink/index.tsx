@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import Img from 'react-optimized-image'
+import { Svg } from 'react-optimized-image'
 import cx from 'classnames'
 
-import bit from 'images/bit.png'
+import bit from 'images/bit.svg'
 
 import styles from './index.module.scss'
 
@@ -13,7 +13,7 @@ export interface HomeLinkProps {
 const HomeLink = ({ className }: HomeLinkProps) => (
 	<Link href="/">
 		<a className={cx(styles.root, className)}>
-			<Img className={styles.icon} src={bit} webp url />
+			<Svg className={styles.icon} src={bit} />
 			byte
 		</a>
 	</Link>

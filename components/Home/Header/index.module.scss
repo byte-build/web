@@ -1,7 +1,75 @@
 @use 'styles/colors';
 
 .root {
-	height: 500px;
+	$border-radius: 30px;
+
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
 	background: colors.$light-blue;
-	border-radius: 0 0 30px 30px;
+	border-radius: 0 0 $border-radius $border-radius;
+}
+
+.text {
+	flex-grow: 1;
+	max-width: 600px;
+}
+
+.title {
+	font-size: 40px;
+	font-weight: 700;
+}
+
+.subtitle {
+	margin-top: 12px;
+	font-size: 20px;
+	font-weight: 600;
+	opacity: 0.5;
+}
+
+.list {
+	margin-top: 24px;
+	list-style: none;
+}
+
+.item {
+	font-size: 16px;
+	font-weight: 700;
+
+	&::before {
+		$dimension: 30px;
+
+		content: counter(list-item);
+		display: inline-block;
+		width: $dimension;
+		height: $dimension;
+		margin-right: 8px;
+		vertical-align: middle;
+		line-height: $dimension;
+		text-align: center;
+		font-size: 14px;
+		background: white;
+		border-radius: $dimension / 2;
+	}
+
+	& + & {
+		margin-top: 10px;
+	}
+}
+
+.images {
+	display: flex;
+	align-items: center;
+}
+
+.person {
+	flex-shrink: 0;
+	align-self: flex-end;
+	margin-right: 30px;
+}
+
+.art {
+	flex-shrink: 0;
+	height: 390px;
+	margin: 40px 0;
 }
