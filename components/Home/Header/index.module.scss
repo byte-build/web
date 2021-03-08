@@ -1,0 +1,7 @@
+@use 'styles/colors';
+
+.root {
+	height: 500px;
+	background: colors.$light-blue;
+	border-radius: 0 0 30px 30px;
+}

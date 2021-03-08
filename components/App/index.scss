@@ -1,5 +1,7 @@
 @use '~react-toastify/dist/ReactToastify';
 
+@use 'styles/sizes';
+
 *,
 ::before,
 ::after {
@@ -13,6 +15,7 @@
 
 body {
 	overscroll-behavior: none;
+	padding-top: sizes.$navbar-height;
 }
 
 button {

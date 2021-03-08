@@ -1,5 +1,7 @@
 import { NextPage } from 'next'
 
-const Home: NextPage = () => null
+import Header from './Header'
+
+const Home: NextPage = () => <Header />
 
 export default Home

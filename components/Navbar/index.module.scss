@@ -1,4 +1,5 @@
 @use 'styles/sizes';
+@use 'styles/z-index';
 @use 'styles/colors';
 
 .root {
@@ -13,6 +14,7 @@
 	padding: 0 30px;
 	background: white;
 	border-bottom: 1px solid transparentize(colors.$purple, 0.5);
+	z-index: z-index.$navbar;
 }
 
 .home {
