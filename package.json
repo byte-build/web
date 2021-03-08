@@ -8,6 +8,7 @@
 	},
 	"dependencies": {
 		"classnames": "^2.2.6",
+		"firebase": "^8.2.10",
 		"next": "^10.0.6",
 		"next-optimized-images": "^3.0.0-canary.10",
 		"nprogress": "^0.2.0",
