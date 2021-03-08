@@ -4,7 +4,7 @@
 	display: flex;
 	align-items: center;
 	text-decoration: none;
-	font-size: 40px;
+	font-size: 36px;
 	font-weight: 900;
 	color: colors.$purple;
 	transition: opacity 0.3s;
@@ -14,8 +14,8 @@
 	}
 }
 
-.bit {
+.icon {
 	display: block;
-	max-height: 50px;
+	height: 46px;
 	margin-right: 12px;
 }

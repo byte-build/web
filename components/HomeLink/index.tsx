@@ -13,7 +13,7 @@ export interface HomeLinkProps {
 const HomeLink = ({ className }: HomeLinkProps) => (
 	<Link href="/">
 		<a className={cx(styles.root, className)}>
-			<Img className={styles.bit} src={bit} webp url />
+			<Img className={styles.icon} src={bit} webp url />
 			byte
 		</a>
 	</Link>

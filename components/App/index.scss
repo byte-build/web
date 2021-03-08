@@ -15,6 +15,14 @@ body {
 	overscroll-behavior: none;
 }
 
+button {
+	cursor: pointer;
+
+	&:disabled {
+		cursor: default;
+	}
+}
+
 .Toastify__toast {
 	padding-left: 16px !important;
 	font-family: inherit !important;

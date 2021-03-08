@@ -14,3 +14,7 @@
 	background: white;
 	border-bottom: 1px solid transparentize(colors.$purple, 0.5);
 }
+
+.home {
+	flex-shrink: 0;
+}
