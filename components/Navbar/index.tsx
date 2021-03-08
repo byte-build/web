@@ -1,8 +1,12 @@
 import HomeLink from 'components/HomeLink'
+import Links from './Links'
+
+import styles from './index.module.scss'
 
 const Navbar = () => (
-	<nav>
+	<nav className={styles.root}>
 		<HomeLink />
+		<Links />
 	</nav>
 )
 

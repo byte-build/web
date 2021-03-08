@@ -3,19 +3,27 @@
 .root {
 	display: flex;
 	align-items: center;
+}
+
+.link {
+	display: flex;
+	align-items: center;
 	text-decoration: none;
-	font-size: 40px;
-	font-weight: 900;
+	font-weight: 600;
 	color: colors.$purple;
 	transition: opacity 0.3s;
 
 	&:hover {
 		opacity: 0.7;
 	}
+
+	& + & {
+		margin-left: 30px;
+	}
 }
 
-.bit {
+.icon {
 	display: block;
-	max-height: 50px;
-	margin-right: 12px;
+	max-height: 30px;
+	margin-right: 8px;
 }

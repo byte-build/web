@@ -1,7 +1,5 @@
 import { NextPage } from 'next'
 
-import Navbar from 'components/Navbar'
-
-const Home: NextPage = () => <Navbar />
+const Home: NextPage = () => null
 
 export default Home
