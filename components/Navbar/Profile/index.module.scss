@@ -1,0 +1,56 @@
+@use 'styles/colors';
+
+.root {
+	display: flex;
+	align-items: center;
+	height: 30px;
+}
+
+.notifications {
+	display: flex;
+	color: colors.$purple;
+	background: none;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+.divider {
+	$width: 2px;
+
+	align-self: stretch;
+	width: $width;
+	margin: 0 12px;
+	background: colors.$purple;
+	border-radius: $width / 2;
+	opacity: 0.5;
+}
+
+.user {
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	font-weight: 900;
+	color: colors.$purple;
+	background: none;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+.userImage {
+	$dimension: 30px;
+
+	width: $dimension;
+	height: $dimension;
+	margin-right: 8px;
+	border-radius: $dimension / 2;
+}
+
+.userInfo {
+	margin-left: 8px;
+}
