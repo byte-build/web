@@ -1,10 +1,21 @@
 import { NextPage } from 'next'
 import { AppProps } from 'next/app'
+import { ToastContainer } from 'react-toastify'
 
-import 'styles/global.scss'
+import useProgress from 'hooks/useProgress'
 
-const App: NextPage<AppProps> = ({ Component, pageProps }) => (
-	<Component {...pageProps} />
-)
+import 'components/App/index.scss'
+import 'components/Progress/index.scss'
+
+const App: NextPage<AppProps> = ({ Component, pageProps }) => {
+	useProgress()
+
+	return (
+		<>
+			<Component {...pageProps} />
+			<ToastContainer />
+		</>
+	)
+}
 
 export default App

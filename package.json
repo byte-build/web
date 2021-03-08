@@ -7,14 +7,19 @@
 		"start": "next start"
 	},
 	"dependencies": {
+		"classnames": "^2.2.6",
 		"next": "^10.0.6",
 		"next-optimized-images": "^3.0.0-canary.10",
+		"nprogress": "^0.2.0",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
+		"react-toastify": "^7.0.3",
 		"sass": "^1.32.6"
 	},
 	"devDependencies": {
+		"@types/classnames": "^2.2.11",
 		"@types/node": "^14.14.25",
+		"@types/nprogress": "^0.2.0",
 		"@types/react": "^17.0.1",
 		"@typescript-eslint/eslint-plugin": "^4.14.2",
 		"@typescript-eslint/parser": "^4.14.2",
