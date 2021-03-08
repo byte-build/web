@@ -1,0 +1,28 @@
+@use 'styles/colors';
+
+.root {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	padding: 10px 28px;
+	font-size: 16px;
+	font-weight: 900;
+	color: white;
+	background: colors.$purple;
+	border: 2px solid colors.$purple;
+	border-radius: 8px;
+	transition: color 0.3s, background 0.3s, transform 0.3s;
+
+	&:hover {
+		color: colors.$purple;
+		background: white;
+	}
+
+	&:active {
+		transform: translateY(-2px);
+	}
+}
+
+.icon {
+	margin-right: 12px;
+}
