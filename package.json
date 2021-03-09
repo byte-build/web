@@ -10,6 +10,7 @@
 		"classnames": "^2.2.6",
 		"csp-header": "^2.1.2",
 		"firebase": "^8.2.10",
+		"format-number": "^3.0.0",
 		"next": "^10.0.6",
 		"next-optimized-images": "^3.0.0-canary.10",
 		"nprogress": "^0.2.0",

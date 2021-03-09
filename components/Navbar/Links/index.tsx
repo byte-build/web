@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { Svg } from 'react-optimized-image'
 
+import formatNumber from 'lib/formatNumber'
+
 import shop from 'images/shop.svg'
 import bit from 'images/bit.svg'
 import plus from 'images/plus.svg'
@@ -18,7 +20,7 @@ const NavbarLinks = () => (
 		<Link href="/bits">
 			<a className={styles.bits}>
 				<Svg className={styles.bitsIcon} src={bit} />
-				1,420
+				{formatNumber(1420)}
 				<Svg className={styles.addBits} src={plus} />
 			</a>
 		</Link>

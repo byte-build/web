@@ -16,7 +16,7 @@ export interface NavbarProfileProps {
 const NavbarProfile = ({ user }: NavbarProfileProps) => (
 	<div className={styles.root}>
 		<button className={styles.notifications}>
-			<Svg src={bell} />
+			<Svg className={styles.notificationsIcon} src={bell} />
 		</button>
 		<hr className={styles.divider} />
 		<button className={styles.user}>

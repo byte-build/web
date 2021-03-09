@@ -20,6 +20,8 @@
 }
 
 .shopIcon {
+	flex-shrink: 0;
+	height: 25px;
 	margin-right: 10px;
 }
 
@@ -41,10 +43,13 @@
 }
 
 .bitsIcon {
+	flex-shrink: 0;
 	height: 30px;
 	margin-right: 10px;
 }
 
 .addBits {
+	flex-shrink: 0;
+	height: 24px;
 	margin-left: 6px;
 }

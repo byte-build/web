@@ -1,0 +1,46 @@
+.root {
+	padding: 50px 30px 80px;
+}
+
+.header {
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-end;
+}
+
+.title {
+	font-size: 32px;
+	font-weight: 700;
+}
+
+.all {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: 700;
+	color: black;
+	opacity: 0.5;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 0.3;
+	}
+}
+
+.allInfo {
+	flex-shrink: 0;
+	width: 24px;
+	margin-left: 8px;
+	transition: transform 0.3s;
+
+	.all:hover & {
+		transform: translateX(8px);
+	}
+}
+
+.cells {
+	display: flex;
+	justify-content: center;
+	margin-top: 16px;
+}

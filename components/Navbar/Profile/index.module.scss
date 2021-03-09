@@ -18,6 +18,10 @@
 	}
 }
 
+.notificationsIcon {
+	height: 22px;
+}
+
 .divider {
 	$width: 2px;
 
@@ -46,6 +50,7 @@
 .userImage {
 	$dimension: 30px;
 
+	flex-shrink: 0;
 	width: $dimension;
 	height: $dimension;
 	margin-right: 8px;
@@ -53,5 +58,7 @@
 }
 
 .userInfo {
+	flex-shrink: 0;
+	width: 17px;
 	margin-left: 8px;
 }
