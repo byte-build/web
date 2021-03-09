@@ -1,5 +1,5 @@
-import Prize from '../../models/Prize'
-import firebase from '../firebase/admin'
+import Prize from 'models/Prize'
+import firebase from 'lib/firebase/admin'
 
 const firestore = firebase.firestore()
 
