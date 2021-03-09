@@ -1,0 +1,91 @@
+@use 'styles/colors';
+
+.root {
+	display: flex;
+	overflow: hidden;
+	background: colors.$purple;
+	border-radius: 30px;
+}
+
+.info {
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	margin-right: 50px;
+	padding-top: 40px;
+}
+
+.title {
+	display: flex;
+	align-items: center;
+	font-size: 50px;
+	font-weight: 900;
+	color: white;
+}
+
+.titleInfo {
+	margin-left: 16px;
+}
+
+.art {
+	display: block;
+	height: 400px;
+}
+
+.text {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 150px 120px 80px 0;
+}
+
+.description {
+	max-width: 750px;
+	font-size: 48px;
+	font-weight: 900;
+	color: transparentize(white, 0.5);
+
+	em,
+	strong {
+		color: white;
+	}
+}
+
+.link {
+	align-self: flex-end;
+	display: flex;
+	align-items: center;
+	margin-top: 80px;
+	padding: 12px 20px;
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 700;
+	color: colors.$purple;
+	background: white;
+	border-radius: 8px;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+.linkInfo {
+	flex-shrink: 0;
+	height: 25px;
+	margin-right: 12px;
+}
+
+.linkArrow {
+	flex-shrink: 0;
+	height: 30px;
+	margin-left: 8px;
+	transition: transform 0.3s;
+
+	.link:hover & {
+		transform: translateX(50px);
+	}
+}

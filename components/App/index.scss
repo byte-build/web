@@ -26,6 +26,11 @@ button {
 	}
 }
 
+b,
+strong {
+	font-weight: bolder;
+}
+
 .Toastify__toast {
 	padding-left: 16px !important;
 	font-family: inherit !important;
