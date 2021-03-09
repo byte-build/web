@@ -20,7 +20,8 @@
 		color: transparentize(colors.$purple, 0.7);
 	}
 
-	&:hover {
+	&:hover,
+	&:focus {
 		background: #f4f4f4;
 	}
 }

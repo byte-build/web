@@ -13,7 +13,7 @@ const NavbarSearch = () => {
 	const input = useRef<HTMLInputElement | null>(null)
 
 	const router = useRouter()
-	const [query, setQuery] = useRecoilState(queryState)
+	const [state, setState] = useRecoilState(queryState)
 
 	const active = router.asPath === '/hackathons'
 
@@ -23,9 +23,9 @@ const NavbarSearch = () => {
 
 	const onChange = useCallback(
 		(event: ChangeEvent<HTMLInputElement>) => {
-			setQuery(event.target.value)
+			setState(state => ({ ...state, query: event.target.value }))
 		},
-		[setQuery]
+		[setState]
 	)
 
 	useEffect(() => {
@@ -38,7 +38,7 @@ const NavbarSearch = () => {
 				ref={input}
 				className={styles.input}
 				placeholder="Hackathons"
-				value={query}
+				value={state.query}
 				onChange={active ? onChange : undefined}
 				readOnly={!active}
 			/>
