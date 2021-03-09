@@ -20,7 +20,8 @@ const HomeBits = () => (
 		<article className={styles.text}>
 			<p className={styles.description}>
 				Hackathons award <em>bits</em>, which you can save up and buy{' '}
-				<strong>extraordinary</strong> prizes from the gift shop
+				<strong>extraordinary</strong> prizes from the gift shop. Or, you can
+				exchange bits for <em>money!</em>
 			</p>
 			<Link href="/shop">
 				<a className={styles.link}>
