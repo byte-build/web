@@ -1,7 +1,58 @@
-.root {
-	background: red;
+@use 'styles/colors';
 
-	&[aria-selected='true'] {
-		background: green;
+.root {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	font-size: 16px;
+	font-weight: 600;
+	background: none;
+
+	& + & {
+		margin-top: 12px;
+	}
+}
+
+.check {
+	$dimension: 26px;
+
+	flex-shrink: 0;
+	width: $dimension;
+	height: $dimension;
+	margin-right: 8px;
+	color: #fafafa;
+	border: 1px solid #c4c4c4;
+	border-radius: $dimension / 2;
+	transition: background 0.3s, border-color 0.3s, opacity 0.3s;
+
+	.root[data-multiple='true'] & {
+		border-radius: 8px;
+	}
+
+	.root[aria-selected='true'] & {
+		background: colors.$blue;
+		border-color: colors.$blue;
+	}
+
+	.root[aria-selected='true']:hover & {
+		opacity: 0.7;
+	}
+
+	.root[aria-selected='false']:hover & {
+		background: transparentize(colors.$blue, 0.5);
+		border-color: transparentize(colors.$blue, 0.95);
+	}
+}
+
+.checkInfo {
+	opacity: 0;
+	transition: opacity 0.3s;
+
+	.root[aria-selected='true'] & {
+		opacity: 1;
+	}
+
+	.root[aria-selected='false']:hover & {
+		opacity: 0.5;
 	}
 }

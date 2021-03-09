@@ -1,8 +1,11 @@
 import { useCallback } from 'react'
 import { useSetRecoilState } from 'recoil'
+import { Svg } from 'react-optimized-image'
 
 import { HackathonFilterCategory, HackathonFilter } from 'models/HackathonQuery'
 import queryState from 'state/query'
+
+import check from 'images/check.svg'
 
 import styles from './index.module.scss'
 
@@ -26,7 +29,7 @@ const toggleFilter = (
 const HackathonFilterRow = ({ category, filter }: HackathonFilterRowProps) => {
 	const setState = useSetRecoilState(queryState)
 
-	const toggle = useCallback(() => {
+	const toggleActive = useCallback(() => {
 		setState(state => ({
 			...state,
 			filters: state.filters.map(_category =>
@@ -40,9 +43,13 @@ const HackathonFilterRow = ({ category, filter }: HackathonFilterRowProps) => {
 	return (
 		<button
 			className={styles.root}
-			onClick={toggle}
+			onClick={toggleActive}
 			aria-selected={filter.active}
+			data-multiple={category.multiple}
 		>
+			<span className={styles.check}>
+				<Svg className={styles.checkInfo} src={check} />
+			</span>
 			{filter.name}
 		</button>
 	)
