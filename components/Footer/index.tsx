@@ -32,17 +32,19 @@ const categories: Category[] = [
 
 const Footer = () => (
 	<footer className={styles.root}>
-		<article className={styles.info}>
-			<HomeLink />
-			<p className={styles.subtitle}>
-				Eric “Jew” Zhu. Funding a cure to ED - Luccock
-			</p>
-		</article>
-		<article className={styles.categories}>
-			{categories.map(category => (
-				<FooterCategory key={category.name} category={category} />
-			))}
-		</article>
+		<div className={styles.main}>
+			<article className={styles.info}>
+				<HomeLink />
+				<p className={styles.subtitle}>
+					Eric “Jew” Zhu. Funding a cure to ED - Luccock
+				</p>
+			</article>
+			<article className={styles.categories}>
+				{categories.map(category => (
+					<FooterCategory key={category.name} category={category} />
+				))}
+			</article>
+		</div>
 		<p className={styles.copyright}>
 			Copyright &copy; 2021 byte Inc. All rights reserved.
 		</p>

@@ -1,0 +1,28 @@
+.root {
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+
+	& + & {
+		margin-left: 50px;
+	}
+}
+
+.name {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.link {
+	margin-top: 16px;
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 600;
+	color: black;
+	opacity: 0.5;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 0.3;
+	}
+}

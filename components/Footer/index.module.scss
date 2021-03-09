@@ -1,0 +1,37 @@
+@use 'styles/colors';
+
+$border-radius: 30px;
+
+.root {
+	padding: 40px 0 30px;
+	background: colors.$light-blue;
+	border-radius: $border-radius $border-radius 0 0;
+}
+
+.main {
+	display: flex;
+	justify-content: space-around;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.subtitle {
+	max-width: 370px;
+	margin-top: 16px;
+	font-size: 26px;
+	font-weight: 700;
+}
+
+.categories {
+	display: flex;
+}
+
+.copyright {
+	margin-top: 50px;
+	text-align: center;
+	font-weight: 600;
+}
