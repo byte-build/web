@@ -2,7 +2,7 @@ $dimension: 150px;
 
 .root {
 	display: grid;
-	grid: repeat(2, $dimension) / repeat(auto-fill, $dimension);
+	grid: none / repeat(auto-fill, $dimension);
 	gap: 30px;
 	justify-content: center;
 	padding: 80px 20px;
