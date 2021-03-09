@@ -2,8 +2,8 @@ import Link from 'next/link'
 import { Svg } from 'react-optimized-image'
 
 import Hackathon from 'models/Hackathon'
-import formatNumber from 'lib/formatNumber'
-import formatDate from 'lib/formatDate'
+import formatNumber from 'lib/format/number'
+import formatDate from 'lib/format/date'
 
 import bit from 'images/bit.svg'
 import date from 'images/date.svg'
@@ -19,7 +19,7 @@ export interface HackathonCellProps {
 const HackathonCell = ({ hackathon }: HackathonCellProps) => (
 	<Link href={`/${hackathon.id}`}>
 		<a className={styles.root}>
-			<img className={styles.image} src="/hackathon.png" />
+			<img className={styles.image} src="/hackathon.png" loading="lazy" />
 			<span className={styles.name}>{hackathon.name}</span>
 			<span className={styles.subtitle}>{hackathon.subtitle}</span>
 			<span className={styles.info}>

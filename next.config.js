@@ -28,7 +28,12 @@ module.exports = require('next-optimized-images')({
 								"'sha256-Nqnn8clbgv+5l0PgxcTOldg8mkMKrFn4TvPL+rYUUGg='", // Render-blocking script
 								'https://apis.google.com'
 							],
-							'img-src': [SELF, DATA, 'https://avatars.githubusercontent.com'],
+							'img-src': [
+								SELF,
+								DATA,
+								`https://storage.googleapis.com/${process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET}/`,
+								'https://avatars.githubusercontent.com'
+							],
 							'object-src': [SELF, DATA],
 							'frame-src': [
 								SELF,

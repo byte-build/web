@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Svg } from 'react-optimized-image'
 
-import formatNumber from 'lib/formatNumber'
+import formatNumber from 'lib/format/number'
 
 import shop from 'images/shop.svg'
 import bit from 'images/bit.svg'

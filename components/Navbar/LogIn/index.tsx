@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react'
 import { Svg } from 'react-optimized-image'
 
 import firebase from 'lib/firebase'
-import handleError from 'lib/handleError'
+import handleError from 'lib/error/handle'
 import Spinner from 'components/Spinner'
 
 import github from 'images/github.svg'

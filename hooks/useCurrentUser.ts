@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useSetRecoilState } from 'recoil'
 
 import firebase from 'lib/firebase'
-import handleError from 'lib/handleError'
+import handleError from 'lib/error/handle'
 import userState from 'state/user'
 
 import 'firebase/auth'

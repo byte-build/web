@@ -4,7 +4,7 @@ import NProgress from 'nprogress'
 
 import { RouterErrorEventHandler, RouterEventHandler } from 'models/Router'
 import { START_POSITION, DELAY } from 'components/Progress/constants'
-import handleError from 'lib/handleError'
+import handleError from 'lib/error/handle'
 
 const useProgress = () => {
 	const timer = useRef<number | null>(null)
