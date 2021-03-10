@@ -6,10 +6,10 @@ import PopularHackathons from './PopularHackathons'
 import Bits from './Bits'
 import Prizes from './Prizes'
 
-const Home: NextPage<HomeProps> = ({ prizes }) => (
+const Home: NextPage<HomeProps> = ({ hackathons, prizes }) => (
 	<>
 		<Header />
-		<PopularHackathons />
+		<PopularHackathons hackathons={hackathons} />
 		<Bits />
 		<Prizes prizes={prizes} />
 	</>

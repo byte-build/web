@@ -12,6 +12,7 @@ export default interface Hackathon {
 export interface HackathonTime {
 	start: Date
 	end: Date
+	range: number
 }
 
 export interface HackathonAdmin {
