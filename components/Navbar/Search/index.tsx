@@ -15,7 +15,7 @@ const NavbarSearch = () => {
 	const router = useRouter()
 	const [state, setState] = useRecoilState(queryState)
 
-	const active = router.asPath === '/hackathons'
+	const active = router.pathname === '/hackathons'
 
 	const push = useCallback(() => {
 		router.push('/hackathons')
