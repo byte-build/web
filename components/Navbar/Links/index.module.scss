@@ -28,6 +28,7 @@
 .bits {
 	display: flex;
 	align-items: center;
+	min-width: 140px;
 	margin-left: 30px;
 	padding: 4px 12px;
 	text-decoration: none;
@@ -45,11 +46,12 @@
 .bitsIcon {
 	flex-shrink: 0;
 	height: 30px;
-	margin-right: 10px;
+	padding-right: 10px;
 }
 
 .addBits {
 	flex-shrink: 0;
 	height: 24px;
-	margin-left: 6px;
+	margin-left: auto;
+	padding-left: 6px;
 }

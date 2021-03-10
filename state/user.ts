@@ -1,13 +1,10 @@
 import { atom } from 'recoil'
 
-import firebase from 'lib/firebase'
+import User from 'models/User'
 
-import 'firebase/auth'
-
-const userState = atom<firebase.User | null | undefined>({
+const userState = atom<User | null | undefined>({
 	key: 'user',
-	default: undefined,
-	dangerouslyAllowMutability: true
+	default: undefined
 })
 
 export default userState
