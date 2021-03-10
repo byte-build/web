@@ -10,6 +10,8 @@ import queryState from 'state/query'
 import hackathonsState from 'state/hackathons'
 import Row from './Row'
 
+import styles from './index.module.scss'
+
 const search = throttle(
 	(query: HackathonQuery, setHackathons: (hackathons: Hackathon[]) => void) => {
 		let commit = true
@@ -32,11 +34,11 @@ const HackathonResults = () => {
 	useEffect(() => search(query, setHackathons), [query, setHackathons])
 
 	return (
-		<>
+		<main className={styles.root}>
 			{hackathons?.map(hackathon => (
 				<Row key={hackathon.id} hackathon={hackathon} />
 			))}
-		</>
+		</main>
 	)
 }
 

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Svg } from 'react-optimized-image'
 
 import Hackathon from 'models/Hackathon'
+import getStorageUrl from 'lib/storage/url'
 import formatNumber from 'lib/format/number'
 import formatDate from 'lib/format/date'
 
@@ -19,7 +20,11 @@ export interface HackathonCellProps {
 const HackathonCell = ({ hackathon }: HackathonCellProps) => (
 	<Link href={`/${hackathon.id}`}>
 		<a className={styles.root}>
-			<img className={styles.image} src="/hackathon.png" loading="lazy" />
+			<img
+				className={styles.image}
+				src={getStorageUrl(`hackathons/${hackathon.id}`)}
+				loading="lazy"
+			/>
 			<span className={styles.name}>{hackathon.name}</span>
 			<span className={styles.subtitle}>{hackathon.subtitle}</span>
 			<span className={styles.info}>

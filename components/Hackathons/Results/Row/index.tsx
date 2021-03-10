@@ -5,7 +5,7 @@ export interface HackathonRowProps {
 }
 
 const HackathonRow = ({ hackathon }: HackathonRowProps) => {
-	return <>{hackathon.name}</>
+	return <p>{hackathon.name}</p>
 }
 
 export default HackathonRow
