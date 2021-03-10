@@ -1,41 +1,42 @@
-import { useEffect } from 'react'
+import { SetStateAction, useEffect } from 'react'
 import { useRecoilValue, useRecoilState } from 'recoil'
 import throttle from 'lodash/throttle'
 
-import Hackathon from 'models/Hackathon'
 import HackathonQuery from 'models/Hackathon/Query'
 import getHackathons from 'lib/hackathon/get'
 import handleError from 'lib/error/handle'
 import queryState from 'state/query'
-import hackathonsState from 'state/hackathons'
+import hackathonsState, { HackathonsState } from 'state/hackathons'
 import Row from './Row'
 
 import styles from './index.module.scss'
 
-const search = throttle(
-	(query: HackathonQuery, setHackathons: (hackathons: Hackathon[]) => void) => {
-		let commit = true
+type SetState = (state: SetStateAction<HackathonsState>) => void
 
-		getHackathons(query)
-			.then(hackathons => commit && setHackathons(hackathons))
-			.catch(error => commit && handleError(error))
+const search = throttle((query: HackathonQuery, setState: SetState) => {
+	let commit = true
 
-		return () => {
-			commit = false
-		}
-	},
-	1000
-)
+	setState(state => ({ ...state, isLoading: true }))
+
+	getHackathons(query)
+		.then(value => commit && setState({ value, isLoading: false }))
+		.catch(error => commit && handleError(error))
+
+	return () => {
+		commit = false
+		setState(state => ({ ...state, isLoading: false }))
+	}
+}, 1000)
 
 const HackathonResults = () => {
 	const query = useRecoilValue(queryState)
-	const [hackathons, setHackathons] = useRecoilState(hackathonsState)
+	const [{ value }, setState] = useRecoilState(hackathonsState)
 
-	useEffect(() => search(query, setHackathons), [query, setHackathons])
+	useEffect(() => search(query, setState), [query, setState])
 
 	return (
 		<main className={styles.root}>
-			{hackathons?.map(hackathon => (
+			{value?.map(hackathon => (
 				<Row key={hackathon.id} hackathon={hackathon} />
 			))}
 		</main>

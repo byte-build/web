@@ -1,10 +1,10 @@
 import HackathonData from 'models/Hackathon/Data'
 import HackathonQuery from 'models/Hackathon/Query'
-import index from 'lib/search'
+import search from 'lib/search'
 import hackathonFromData from './from/data'
 
-const getHackathons = async ({ query, order, filters }: HackathonQuery) => {
-	const { hits } = await index.search(query, {
+const getHackathons = async ({ query, index, filters }: HackathonQuery) => {
+	const { hits } = await search.initIndex(index).search(query, {
 		filters: filters
 			.map(({ filters }) => filters.filter(({ active }) => active))
 			.filter(({ length }) => length)

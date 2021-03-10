@@ -1,23 +1,23 @@
 import { useRecoilValue } from 'recoil'
 
 import formatNumber from 'lib/format/number'
-import queryState from 'state/query'
 import hackathonsState from 'state/hackathons'
+import Spinner from 'components/Spinner'
 import Order from './Order'
 
 import styles from './index.module.scss'
 
 const HackathonsSummary = () => {
-	const query = useRecoilValue(queryState)
-	const hackathons = useRecoilValue(hackathonsState)
+	const { value, isLoading } = useRecoilValue(hackathonsState)
+	const count = value?.length ?? 0
 
 	return (
 		<header className={styles.root}>
 			<h1 className={styles.title}>
 				Showing{' '}
 				<span className={styles.count}>
-					{formatNumber(hackathons?.length ?? 0)} Hackathon
-					{hackathons?.length === 1 ? '' : 's'}
+					{formatNumber(count)} Hackathon{count === 1 ? '' : 's'}
+					{isLoading && <Spinner className={styles.spinner} />}
 				</span>
 			</h1>
 			<Order />

@@ -1,6 +1,7 @@
 import { atom } from 'recoil'
 
 import HackathonQuery from 'models/Hackathon/Query'
+import { ORDERS } from 'models/Hackathon/Order'
 
 const now = new Date()
 
@@ -11,7 +12,7 @@ const queryState = atom<HackathonQuery>({
 	key: 'query',
 	default: {
 		query: '',
-		index: 'hackathons',
+		index: ORDERS[0].index,
 		filters: [
 			{
 				name: 'Skill Level',

@@ -1,4 +1,8 @@
 .root {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+
 	& + & {
 		margin-top: 30px;
 	}

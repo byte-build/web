@@ -2,9 +2,14 @@ import { atom } from 'recoil'
 
 import Hackathon from 'models/Hackathon'
 
-const hackathonsState = atom<Hackathon[] | null>({
+export interface HackathonsState {
+	value: Hackathon[] | null
+	isLoading: boolean
+}
+
+const hackathonsState = atom<HackathonsState>({
 	key: 'hackathons',
-	default: null
+	default: { value: null, isLoading: false }
 })
 
 export default hackathonsState

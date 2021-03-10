@@ -1,3 +1,5 @@
+@use 'styles/spinner';
+
 .root {
 	grid-area: summary;
 	display: flex;
@@ -18,10 +20,18 @@
 }
 
 .count {
+	display: inline-flex;
+	align-items: center;
 	color: transparentize(black, 0.5);
 	transition: color 0.3s;
 
 	.title:hover & {
 		color: black;
 	}
+}
+
+.spinner {
+	@include spinner.options(18px, 3px, currentColor);
+
+	margin: -2px 0 0 12px;
 }
