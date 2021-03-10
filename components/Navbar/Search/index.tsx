@@ -6,6 +6,7 @@ import { Svg } from 'react-optimized-image'
 import queryState from 'state/query'
 
 import search from 'images/search.svg'
+import plus from 'images/plus.svg'
 
 import styles from './index.module.scss'
 
@@ -15,10 +16,14 @@ const NavbarSearch = () => {
 	const router = useRouter()
 	const [state, setState] = useRecoilState(queryState)
 
-	const active = router.pathname === '/hackathons'
+	const active = router.pathname === '/all'
 
 	const push = useCallback(() => {
-		router.push('/hackathons')
+		router.push('/all')
+	}, [router])
+
+	const create = useCallback(() => {
+		router.push('/new')
 	}, [router])
 
 	const onChange = useCallback(
@@ -34,6 +39,7 @@ const NavbarSearch = () => {
 
 	return (
 		<div className={styles.root} onClick={active ? undefined : push}>
+			<Svg className={styles.icon} src={search} />
 			<input
 				ref={input}
 				className={styles.input}
@@ -42,7 +48,9 @@ const NavbarSearch = () => {
 				onChange={active ? onChange : undefined}
 				readOnly={!active}
 			/>
-			<Svg className={styles.icon} src={search} />
+			<button className={styles.new} onClick={create}>
+				<Svg className={styles.newIcon} src={plus} />
+			</button>
 		</div>
 	)
 }

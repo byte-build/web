@@ -25,7 +25,7 @@ const HomePopularHackathons = ({
 		<section className={styles.root}>
 			<header className={styles.header}>
 				<h3 className={styles.title}>Popular Hackathons</h3>
-				<Link href="/hackathons">
+				<Link href="/all">
 					<a className={styles.all}>
 						View All Hackathons
 						<Svg className={styles.allInfo} src={right} />

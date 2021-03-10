@@ -7,7 +7,7 @@ const categories: Category[] = [
 	{
 		name: 'Product',
 		links: [
-			{ name: 'Hackathons', url: '/hackathons' },
+			{ name: 'Hackathons', url: '/all' },
 			{ name: 'Gift Shop', url: '/shop' },
 			{ name: 'Bit Market', url: '/bits' }
 		]

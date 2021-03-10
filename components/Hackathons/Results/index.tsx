@@ -1,5 +1,5 @@
-import { SetStateAction, useEffect } from 'react'
-import { useRecoilValue, useRecoilState } from 'recoil'
+import { useEffect } from 'react'
+import { SetterOrUpdater, useRecoilValue, useRecoilState } from 'recoil'
 import throttle from 'lodash/throttle'
 
 import HackathonQuery from 'models/Hackathon/Query'
@@ -11,28 +11,30 @@ import Row from './Row'
 
 import styles from './index.module.scss'
 
-type SetState = (state: SetStateAction<HackathonsState>) => void
+const search = throttle(
+	(query: HackathonQuery, setState: SetterOrUpdater<HackathonsState>) => {
+		let commit = true
 
-const search = throttle((query: HackathonQuery, setState: SetState) => {
-	let commit = true
+		getHackathons(query)
+			.then(value => commit && setState({ value, isLoading: false }))
+			.catch(error => commit && handleError(error))
 
-	setState(state => ({ ...state, isLoading: true }))
-
-	getHackathons(query)
-		.then(value => commit && setState({ value, isLoading: false }))
-		.catch(error => commit && handleError(error))
-
-	return () => {
-		commit = false
-		setState(state => ({ ...state, isLoading: false }))
-	}
-}, 1000)
+		return () => {
+			commit = false
+			setState(state => ({ ...state, isLoading: false }))
+		}
+	},
+	1000
+)
 
 const HackathonResults = () => {
 	const query = useRecoilValue(queryState)
 	const [{ value }, setState] = useRecoilState(hackathonsState)
 
-	useEffect(() => search(query, setState), [query, setState])
+	useEffect(() => {
+		setState(state => ({ ...state, isLoading: true }))
+		return search(query, setState)
+	}, [query, setState])
 
 	return (
 		<main className={styles.root}>
