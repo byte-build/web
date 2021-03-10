@@ -1,3 +1,5 @@
-const HackathonsSummary = () => {}
+const HackathonsSummary = () => {
+	return null
+}
 
 export default HackathonsSummary

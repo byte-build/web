@@ -9,6 +9,7 @@
 		"start": "next start"
 	},
 	"dependencies": {
+		"algoliasearch": "^4.8.6",
 		"classnames": "^2.2.6",
 		"csp-header": "^2.1.2",
 		"firebase": "^8.2.10",

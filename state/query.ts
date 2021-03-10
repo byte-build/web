@@ -1,6 +1,6 @@
 import { atom } from 'recoil'
 
-import HackathonQuery from 'models/HackathonQuery'
+import HackathonQuery from 'models/Hackathon/Query'
 
 const now = new Date()
 

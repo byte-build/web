@@ -19,7 +19,12 @@ module.exports = require('next-optimized-images')({
 					value: getCSP({
 						directives: {
 							'default-src': [SELF],
-							'connect-src': [SELF, 'https://*.googleapis.com'],
+							'connect-src': [
+								SELF,
+								'https://*.googleapis.com',
+								'https://*.algolia.net',
+								'https://*.algolianet.com'
+							],
 							'font-src': [SELF, 'https://fonts.gstatic.com'],
 							'style-src': [SELF, INLINE, 'https://fonts.googleapis.com'],
 							'script-src': [

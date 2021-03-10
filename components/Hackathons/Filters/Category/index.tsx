@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 import { useSetRecoilState } from 'recoil'
 import { Svg } from 'react-optimized-image'
 
-import { HackathonFilterCategory } from 'models/HackathonQuery'
+import { HackathonFilterCategory } from 'models/Hackathon/Query'
 import queryState from 'state/query'
 import Filter from '../Filter'
 
