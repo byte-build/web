@@ -1,4 +1,4 @@
-import { ChangeEvent, useRef, useCallback, useEffect } from 'react'
+import { MouseEvent, ChangeEvent, useRef, useCallback, useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 import { useRouter } from 'next/router'
 import { Svg } from 'react-optimized-image'
@@ -22,9 +22,13 @@ const NavbarSearch = () => {
 		router.push('/all')
 	}, [router])
 
-	const create = useCallback(() => {
-		router.push('/new')
-	}, [router])
+	const create = useCallback(
+		(event: MouseEvent<HTMLButtonElement>) => {
+			event.stopPropagation()
+			router.push('/new')
+		},
+		[router]
+	)
 
 	const onChange = useCallback(
 		(event: ChangeEvent<HTMLInputElement>) => {

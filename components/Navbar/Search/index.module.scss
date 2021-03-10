@@ -18,7 +18,7 @@
 .input {
 	width: 100%;
 	height: 100%;
-	padding: 0 12px 0 40px;
+	padding: 0 40px;
 	font-size: 16px;
 	font-weight: 600;
 	background: transparentize(colors.$purple, 0.9);
@@ -29,20 +29,28 @@
 		color: transparentize(colors.$purple, 0.7);
 	}
 
-	&:hover,
+	.root:hover &,
 	&:focus {
 		background: #f4f4f4;
 	}
 }
 
 .new {
+	display: flex;
 	position: absolute;
-	top: 6px;
-	right: 10px;
-	width: 24px;
+	top: 4px;
+	right: 7px;
+	padding: 2px;
 	color: colors.$purple;
 	background: none;
+	border-radius: 8px;
+	transition: background 0.3s;
+
+	&:hover {
+		background: transparentize(colors.$purple, 0.9);
+	}
 }
 
 .newIcon {
+	width: 24px;
 }
