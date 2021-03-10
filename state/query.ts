@@ -5,7 +5,7 @@ import HackathonQuery from 'models/Hackathon/Query'
 const now = new Date()
 
 const fixed = (days: number) => days * 1000 * 60 * 60 * 24
-const advance = (days: number) => new Date(now.getTime() + fixed(days))
+const advance = (days: number) => now.getTime() + fixed(days)
 
 const queryState = atom<HackathonQuery>({
 	key: 'query',

@@ -4,7 +4,13 @@ import index from 'lib/search'
 import hackathonFromData from './from/data'
 
 const getHackathons = async ({ query, order, filters }: HackathonQuery) => {
-	const { hits } = await index.search(query)
+	const { hits } = await index.search(query, {
+		filters: filters
+			.map(({ filters }) => filters.filter(({ active }) => active))
+			.filter(({ length }) => length)
+			.map(filters => `(${filters.map(({ value }) => value).join(' OR ')})`)
+			.join(' AND ')
+	})
 
 	return hits.map(hit =>
 		hackathonFromData(({
