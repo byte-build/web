@@ -1,17 +1,17 @@
 import { useEffect } from 'react'
 import { useRecoilValue, useRecoilState } from 'recoil'
+import throttle from 'lodash/throttle'
 
+import Hackathon from 'models/Hackathon'
+import HackathonQuery from 'models/Hackathon/Query'
 import getHackathons from 'lib/hackathon/get'
 import handleError from 'lib/error/handle'
 import queryState from 'state/query'
 import hackathonsState from 'state/hackathons'
 import Row from './Row'
 
-const HackathonResults = () => {
-	const query = useRecoilValue(queryState)
-	const [hackathons, setHackathons] = useRecoilState(hackathonsState)
-
-	useEffect(() => {
+const search = throttle(
+	(query: HackathonQuery, setHackathons: (hackathons: Hackathon[]) => void) => {
 		let commit = true
 
 		getHackathons(query)
@@ -21,7 +21,15 @@ const HackathonResults = () => {
 		return () => {
 			commit = false
 		}
-	}, [query, setHackathons])
+	},
+	500
+)
+
+const HackathonResults = () => {
+	const query = useRecoilValue(queryState)
+	const [hackathons, setHackathons] = useRecoilState(hackathonsState)
+
+	useEffect(() => search(query, setHackathons), [query, setHackathons])
 
 	return (
 		<>
