@@ -1,6 +1,6 @@
 export default interface HackathonQuery {
 	query: string
-	order: string
+	index: string
 	filters: HackathonFilterCategory[]
 }
 

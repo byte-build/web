@@ -11,7 +11,7 @@ const queryState = atom<HackathonQuery>({
 	key: 'query',
 	default: {
 		query: '',
-		order: '',
+		index: 'hackathons',
 		filters: [
 			{
 				name: 'Skill Level',

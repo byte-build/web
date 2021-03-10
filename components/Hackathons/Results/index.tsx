@@ -24,7 +24,7 @@ const search = throttle(
 			commit = false
 		}
 	},
-	500
+	1000
 )
 
 const HackathonResults = () => {

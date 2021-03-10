@@ -1,0 +1,28 @@
+.root {
+	font-size: 20px;
+	font-weight: 600;
+	color: black;
+	background: none;
+	transition: color 0.3s;
+
+	&:hover {
+		color: transparentize(black, 0.5);
+	}
+}
+
+.value {
+	display: inline-flex;
+	align-items: center;
+	color: transparentize(black, 0.5);
+	transition: color 0.3s;
+
+	.root:hover & {
+		color: black;
+	}
+}
+
+.valueInfo {
+	flex-shrink: 0;
+	width: 17px;
+	margin-left: 8px;
+}
