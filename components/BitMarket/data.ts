@@ -15,10 +15,9 @@ export const getStaticProps: GetStaticProps<
 	BitMarketQuery
 > = async ({ params }) => {
 	const id = params?.bit
-	if (typeof id !== 'string') return { notFound: true }
 
 	const bits = await getBits()
-	if (!bits.some(bit => bit.id === id)) return { notFound: true }
+	if (id && !bits.some(bit => bit.id === id)) return { notFound: true }
 
 	return {
 		props: { bits },

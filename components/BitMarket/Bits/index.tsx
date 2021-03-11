@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { BitMarketQuery } from '../models'
 import Bit from 'models/Bit'
 import Cell from './Cell'
+import Buy from './Buy'
 
 import styles from './index.module.scss'
 
@@ -19,6 +20,7 @@ const Bits = ({ bits }: BitsProps) => {
 			{bits.map(bit => (
 				<Cell key={bit.id} bit={bit} />
 			))}
+			<Buy bit={bit} />
 		</main>
 	)
 }
