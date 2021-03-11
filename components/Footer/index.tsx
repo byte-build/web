@@ -8,7 +8,7 @@ const Footer = () => (
 	<footer className={styles.root}>
 		<div className={styles.main}>
 			<article className={styles.info}>
-				<HomeLink />
+				<HomeLink className={styles.home} />
 				<p className={styles.subtitle}>
 					Eric “Jew” Zhu. Funding a cure to ED - Luccock
 				</p>

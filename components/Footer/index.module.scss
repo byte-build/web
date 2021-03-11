@@ -4,7 +4,7 @@ $border-radius: 30px;
 
 .root {
 	padding: 40px 0 30px;
-	background: colors.$light-blue;
+	background: colors.$dark;
 	border-radius: $border-radius $border-radius 0 0;
 }
 
@@ -19,19 +19,26 @@ $border-radius: 30px;
 	align-items: flex-start;
 }
 
+.home {
+	color: white;
+}
+
 .subtitle {
 	max-width: 370px;
 	margin-top: 16px;
 	font-size: 26px;
 	font-weight: 700;
+	color: white;
 }
 
 .categories {
 	display: flex;
+	color: white;
 }
 
 .copyright {
 	margin-top: 50px;
 	text-align: center;
 	font-weight: 600;
+	color: white;
 }
