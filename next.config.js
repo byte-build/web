@@ -21,9 +21,11 @@ module.exports = require('next-optimized-images')({
 							'default-src': [SELF],
 							'connect-src': [
 								SELF,
+								`https://us-central1-${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}.cloudfunctions.net`,
 								'https://*.googleapis.com',
 								'https://*.algolia.net',
-								'https://*.algolianet.com'
+								'https://*.algolianet.com',
+								'https://api.stripe.com'
 							],
 							'font-src': [SELF, 'https://fonts.gstatic.com'],
 							'style-src': [SELF, INLINE, 'https://fonts.googleapis.com'],
@@ -31,7 +33,8 @@ module.exports = require('next-optimized-images')({
 								SELF,
 								...(DEV ? [EVAL] : []),
 								"'sha256-Nqnn8clbgv+5l0PgxcTOldg8mkMKrFn4TvPL+rYUUGg='", // Render-blocking script
-								'https://apis.google.com'
+								'https://apis.google.com',
+								'https://js.stripe.com'
 							],
 							'img-src': [
 								SELF,
@@ -42,7 +45,9 @@ module.exports = require('next-optimized-images')({
 							'object-src': [SELF, DATA],
 							'frame-src': [
 								SELF,
-								`https://${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}.firebaseapp.com`
+								`https://${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}.firebaseapp.com`,
+								'https://js.stripe.com',
+								'https://hooks.stripe.com'
 							],
 							'base-uri': SELF,
 							'upgrade-insecure-requests': !DEV
