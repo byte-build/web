@@ -13,7 +13,8 @@ export interface BuyBitsProps {
 }
 
 const setIsShowing = (isShowing: boolean) => {
-	if (!isShowing) Router.push('/bits')
+	if (isShowing) return
+	Router.push('/bits', undefined, { shallow: true, scroll: false })
 }
 
 const BuyBits = ({ bit }: BuyBitsProps) => (
@@ -23,7 +24,7 @@ const BuyBits = ({ bit }: BuyBitsProps) => (
 		setIsShowing={setIsShowing}
 	>
 		<Elements stripe={bit ? loadStripe() : null}>
-			{bit && <Content bit={bit} />}
+			<Content bit={bit} />
 		</Elements>
 	</Modal>
 )

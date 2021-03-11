@@ -11,7 +11,7 @@ export interface BitCellProps {
 
 const BitCell = ({ bit }: BitCellProps) => {
 	return (
-		<Link href={`/bits/${bit.id}`}>
+		<Link href={`/bits/${bit.id}`} shallow scroll={false}>
 			<a className={styles.root}>
 				<img
 					className={styles.image}

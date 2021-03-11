@@ -11,10 +11,12 @@ import Spinner from 'components/Spinner'
 import styles from './index.module.scss'
 
 export interface BuyBitsContentProps {
-	bit: Bit
+	bit: Bit | undefined
 }
 
 const BuyBitsContent = ({ bit }: BuyBitsContentProps) => {
+	const id = bit?.id
+
 	const user = useRecoilValue(userState)
 	const [isLoading, setIsLoading] = useState(false)
 
@@ -24,7 +26,7 @@ const BuyBitsContent = ({ bit }: BuyBitsContentProps) => {
 	const onSubmit = useCallback(
 		async (event: FormEvent<HTMLFormElement>) => {
 			event.preventDefault()
-			if (!(user && stripe && elements)) return
+			if (!(id && user && stripe && elements)) return
 
 			try {
 				setIsLoading(true)
@@ -33,7 +35,7 @@ const BuyBitsContent = ({ bit }: BuyBitsContentProps) => {
 				if (!card) throw new Error('Missing card')
 
 				const { paymentIntent, error } = await stripe.confirmCardPayment(
-					await getClientSecret(bit.id),
+					await getClientSecret(id),
 					{
 						payment_method: {
 							card,
@@ -55,7 +57,7 @@ const BuyBitsContent = ({ bit }: BuyBitsContentProps) => {
 				setIsLoading(false)
 			}
 		},
-		[bit.id, user, stripe, elements, setIsLoading]
+		[id, user, stripe, elements, setIsLoading]
 	)
 
 	return (
