@@ -1,9 +1,7 @@
-import { useCallback } from 'react'
-import { useSetRecoilState } from 'recoil'
+import { useState, useCallback } from 'react'
 import { Svg } from 'react-optimized-image'
 
 import { HackathonFilterCategory } from 'models/Hackathon/Query'
-import queryState from 'state/query'
 import Filter from '../Filter'
 
 import down from 'images/chevron-down.svg'
@@ -15,26 +13,19 @@ export interface HackathonCategoryRowProps {
 }
 
 const HackathonCategoryRow = ({ category }: HackathonCategoryRowProps) => {
-	const setState = useSetRecoilState(queryState)
+	const [isExpanded, setIsExpanded] = useState(true)
 
-	const toggleExpanded = useCallback(() => {
-		setState(state => ({
-			...state,
-			filters: state.filters.map(_category =>
-				_category.name === category.name
-					? { ..._category, expanded: !_category.expanded }
-					: _category
-			)
-		}))
-	}, [category.name, setState])
+	const toggleIsExpanded = useCallback(() => {
+		setIsExpanded(isExpanded => !isExpanded)
+	}, [setIsExpanded])
 
 	return (
-		<article className={styles.root} aria-expanded={category.expanded}>
-			<header className={styles.header} onClick={toggleExpanded}>
+		<article className={styles.root} aria-expanded={isExpanded}>
+			<header className={styles.header} onClick={toggleIsExpanded}>
 				<h4 className={styles.name}>{category.name}</h4>
 				<Svg className={styles.expanded} src={down} />
 			</header>
-			{category.expanded &&
+			{isExpanded &&
 				category.filters.map(filter => (
 					<Filter key={filter.value} category={category} filter={filter} />
 				))}

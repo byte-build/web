@@ -17,7 +17,6 @@ const queryState = atom<HackathonQuery>({
 			{
 				name: 'Skill Level',
 				multiple: true,
-				expanded: true,
 				filters: [
 					{
 						name: 'Beginner',
@@ -39,7 +38,6 @@ const queryState = atom<HackathonQuery>({
 			{
 				name: 'Starts in',
 				multiple: false,
-				expanded: true,
 				filters: [
 					{
 						name: 'a day',
@@ -66,7 +64,6 @@ const queryState = atom<HackathonQuery>({
 			{
 				name: 'Time',
 				multiple: true,
-				expanded: true,
 				filters: [
 					{
 						name: '1 day',
@@ -93,7 +90,6 @@ const queryState = atom<HackathonQuery>({
 			{
 				name: 'Participants',
 				multiple: true,
-				expanded: true,
 				filters: [
 					{
 						name: '0 - 20',
@@ -135,7 +131,6 @@ const queryState = atom<HackathonQuery>({
 			{
 				name: 'Bits',
 				multiple: true,
-				expanded: true,
 				filters: [
 					{
 						name: '100 - 1K',

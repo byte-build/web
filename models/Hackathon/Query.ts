@@ -7,7 +7,6 @@ export default interface HackathonQuery {
 export interface HackathonFilterCategory {
 	name: string
 	multiple: boolean
-	expanded: boolean
 	filters: HackathonFilter[]
 }
 
