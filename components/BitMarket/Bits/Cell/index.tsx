@@ -1,7 +1,12 @@
 import Link from 'next/link'
+import { Svg } from 'react-optimized-image'
 
 import Bit from 'models/Bit'
 import getStorageUrl from 'lib/storage/url'
+import formatNumber from 'lib/format/number'
+
+import bitImage from 'images/bit.svg'
+import right from 'images/arrow-right.svg'
 
 import styles from './index.module.scss'
 
@@ -19,6 +24,14 @@ const BitCell = ({ bit }: BitCellProps) => {
 					loading="lazy"
 				/>
 				<span className={styles.name}>{bit.name}</span>
+				<span className={styles.bits}>
+					<Svg className={styles.bit} src={bitImage} />
+					{formatNumber(bit.bits)}
+				</span>
+				<span className={styles.buy}>
+					${bit.cost / 100}
+					<Svg className={styles.buyInfo} src={right} />
+				</span>
 			</a>
 		</Link>
 	)
