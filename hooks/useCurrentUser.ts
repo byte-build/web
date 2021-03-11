@@ -27,9 +27,10 @@ const useCurrentUser = () => {
 	useEffect(() => {
 		if (!id) return
 
-		return firestore
-			.doc(`users/${id}`)
-			.onSnapshot(snapshot => setUser(userFromSnapshot(snapshot)), handleError)
+		return firestore.doc(`users/${id}`).onSnapshot(snapshot => {
+			const user = userFromSnapshot(snapshot)
+			if (user) setUser(user)
+		}, handleError)
 	}, [id, setUser])
 }
 

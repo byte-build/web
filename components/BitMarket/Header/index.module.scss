@@ -1,0 +1,54 @@
+@use 'styles/colors';
+
+$border-radius: 30px;
+
+.root {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 60px 0;
+	background: colors.$purple;
+	border-radius: 0 0 $border-radius $border-radius;
+}
+
+.info {
+	color: white;
+}
+
+.title {
+	font-size: 40px;
+	font-weight: 900;
+}
+
+.subtitle {
+	margin-top: 8px;
+	font-size: 30px;
+	font-weight: 700;
+	opacity: 0.5;
+}
+
+.balance {
+	$height: 54px;
+
+	display: flex;
+	align-items: center;
+	min-width: 170px;
+	max-width: max-content;
+	height: $height;
+	margin-top: 30px;
+	padding: 0 8px;
+	font-size: 36px;
+	font-weight: 900;
+	background: transparentize(white, 0.7);
+	border-radius: $height / 2;
+}
+
+.bit {
+	flex-shrink: 0;
+	height: 46px;
+	margin-right: 12px;
+}
+
+.art {
+	height: 200px;
+}

@@ -1,7 +1,8 @@
 import { NextPage } from 'next'
 
-const BitMarket: NextPage = () => {
-	return null
-}
+import { BitMarketProps } from './models'
+import Header from './Header'
+
+const BitMarket: NextPage<BitMarketProps> = ({ bits }) => <Header />
 
 export default BitMarket
