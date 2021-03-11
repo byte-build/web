@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import Bit from 'models/Bit'
 import getStorageUrl from 'lib/storage/url'
 
@@ -9,14 +11,16 @@ export interface BitCellProps {
 
 const BitCell = ({ bit }: BitCellProps) => {
 	return (
-		<a id={bit.id} className={styles.root} href={`#${bit.id}`}>
-			<img
-				className={styles.image}
-				src={getStorageUrl(`bits/${bit.id}`)}
-				loading="lazy"
-			/>
-			<span className={styles.name}>{bit.name}</span>
-		</a>
+		<Link href={`/bits/${bit.id}`}>
+			<a className={styles.root}>
+				<img
+					className={styles.image}
+					src={getStorageUrl(`bits/${bit.id}`)}
+					loading="lazy"
+				/>
+				<span className={styles.name}>{bit.name}</span>
+			</a>
+		</Link>
 	)
 }
 

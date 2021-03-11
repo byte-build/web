@@ -1,9 +1,27 @@
-import { GetStaticProps } from 'next'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
-import { BitMarketProps } from './models'
+import { BitMarketQuery, BitMarketProps } from './models'
 import getBits from 'lib/bit/all'
 
-export const getStaticProps: GetStaticProps<BitMarketProps> = async () => ({
-	props: { bits: await getBits() },
-	revalidate: 60 * 60 // 1 hour
+export const getStaticPaths: GetStaticPaths<BitMarketQuery> = async () => ({
+	paths: (await getBits()).map(({ id }) => ({
+		params: { bit: id }
+	})),
+	fallback: 'blocking'
 })
+
+export const getStaticProps: GetStaticProps<
+	BitMarketProps,
+	BitMarketQuery
+> = async ({ params }) => {
+	const id = params?.bit
+	if (typeof id !== 'string') return { notFound: true }
+
+	const bits = await getBits()
+	if (!bits.some(bit => bit.id === id)) return { notFound: true }
+
+	return {
+		props: { bits },
+		revalidate: 60 * 60 // 1 hour
+	}
+}
