@@ -28,6 +28,7 @@
 		"sass": "^1.32.8"
 	},
 	"devDependencies": {
+		"@babel/plugin-proposal-logical-assignment-operators": "^7.13.8",
 		"@babel/preset-env": "^7.13.10",
 		"@babel/preset-react": "^7.12.13",
 		"@types/classnames": "^2.2.11",
