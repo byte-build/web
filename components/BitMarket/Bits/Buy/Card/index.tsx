@@ -1,5 +1,8 @@
+import type {
+	StripeCardElement,
+	StripeCardElementOptions
+} from '@stripe/stripe-js'
 import { CardElement } from '@stripe/react-stripe-js'
-import { StripeCardElementOptions } from '@stripe/stripe-js'
 
 import styles from './index.module.scss'
 
@@ -22,6 +25,12 @@ const OPTIONS: StripeCardElementOptions = {
 	}
 }
 
-const Card = () => <CardElement options={OPTIONS} />
+export interface CardProps {
+	setCard(card: StripeCardElement): void
+}
+
+const Card = ({ setCard }: CardProps) => (
+	<CardElement options={OPTIONS} onReady={setCard} />
+)
 
 export default Card

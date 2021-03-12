@@ -1,6 +1,7 @@
 import { FormEvent, useState, useCallback, useEffect } from 'react'
 import { useRecoilValue } from 'recoil'
-import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js'
+import type { StripeCardElement } from '@stripe/stripe-js'
+import { useStripe } from '@stripe/react-stripe-js'
 import { Svg } from 'react-optimized-image'
 
 import Bit from 'models/Bit'
@@ -27,22 +28,19 @@ const BuyBitsContent = ({ bit }: BuyBitsContentProps) => {
 	const id = bit?.id
 	const user = useRecoilValue(userState)
 
+	const stripe = useStripe()
+	const [card, setCard] = useState<StripeCardElement | null>(null)
+
 	const [isLoading, setIsLoading] = useState(false)
 	const [isDisabled, setIsDisabled] = useState(true)
-
-	const stripe = useStripe()
-	const elements = useElements()
 
 	const onSubmit = useCallback(
 		async (event: FormEvent<HTMLFormElement>) => {
 			event.preventDefault()
-			if (!(id && user && stripe && elements)) return
+			if (!(id && user && stripe && card)) return
 
 			try {
 				setIsLoading(true)
-
-				const card = elements.getElement(CardElement)
-				if (!card) throw new Error('Missing card')
 
 				const { paymentIntent, error } = await stripe.confirmCardPayment(
 					await getClientSecret(id),
@@ -67,15 +65,14 @@ const BuyBitsContent = ({ bit }: BuyBitsContentProps) => {
 				setIsLoading(false)
 			}
 		},
-		[id, user, stripe, elements, setIsLoading]
+		[id, user, stripe, card, setIsLoading]
 	)
 
 	useEffect(() => {
-		elements?.getElement(CardElement)?.[isShowing ? 'focus' : 'blur']()
-	}, [isShowing, elements])
+		card?.[isShowing ? 'focus' : 'blur']()
+	}, [isShowing, card])
 
 	useEffect(() => {
-		const card = elements?.getElement(CardElement)
 		if (!card) return
 
 		card.on('change', event => {
@@ -85,7 +82,7 @@ const BuyBitsContent = ({ bit }: BuyBitsContentProps) => {
 		return () => {
 			card.off('change')
 		}
-	}, [elements, setIsDisabled])
+	}, [card, setIsDisabled])
 
 	return (
 		<form className={styles.root} onSubmit={onSubmit}>
@@ -101,10 +98,10 @@ const BuyBitsContent = ({ bit }: BuyBitsContentProps) => {
 					<img className={styles.image} src={getStorageUrl(`bits/${id}`)} />
 				)}
 			</header>
-			<Card />
+			<Card setCard={setCard} />
 			<button
 				className={styles.buy}
-				disabled={isDisabled || !(id && stripe && elements)}
+				disabled={isDisabled || !(id && stripe && card)}
 				aria-busy={isLoading}
 				data-cost={formatCost(bit?.cost ?? 0)}
 			>
