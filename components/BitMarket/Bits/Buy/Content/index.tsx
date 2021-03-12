@@ -25,12 +25,13 @@ export interface BuyBitsContentProps {
 	bit: Bit | undefined
 }
 
-const BuyBitsContent = ({ bit }: BuyBitsContentProps) => {
-	const isShowing = Boolean(bit)
+const BuyBitsContent = ({ bit: _bit }: BuyBitsContentProps) => {
+	const [bit, setBit] = useState(_bit)
 
 	const stripe = useStripe()
 	const user = useRecoilValue(userState)
 
+	const isShowing = Boolean(_bit)
 	const [card, setCard] = useState<StripeCardElement | null>(null)
 
 	const [isLoading, setIsLoading] = useState(false)
@@ -83,6 +84,10 @@ const BuyBitsContent = ({ bit }: BuyBitsContentProps) => {
 		},
 		[bit, user, stripe, card, setIsLoading, succeed]
 	)
+
+	useEffect(() => {
+		if (_bit) setBit(_bit)
+	}, [_bit, setBit])
 
 	useEffect(() => {
 		card?.[isShowing ? 'focus' : 'blur']()
