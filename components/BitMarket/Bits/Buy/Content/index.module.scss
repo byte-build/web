@@ -1,0 +1,88 @@
+@use 'styles/colors';
+@use 'styles/spinner';
+
+.root {
+	display: flex;
+	flex-direction: column;
+	padding: 30px;
+}
+
+.header {
+	flex-shrink: 0;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 30px;
+}
+
+.info {
+	margin-right: 12px;
+}
+
+.title {
+	min-height: 36px;
+	font-size: 30px;
+	font-weight: 900;
+}
+
+.bits {
+	display: flex;
+	align-items: center;
+	margin-top: 8px;
+	font-weight: 900;
+	color: colors.$purple;
+}
+
+.bit {
+	flex-shrink: 0;
+	height: 26px;
+	margin-right: 8px;
+}
+
+.image {
+	flex-shrink: 0;
+	height: 70px;
+}
+
+.buy {
+	flex-shrink: 0;
+	align-self: stretch;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	height: 50px;
+	margin-top: 12px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 700;
+	color: white;
+	background: colors.$blue;
+	border-radius: 4px;
+	transition: opacity 0.3s;
+
+	&::after {
+		content: '$' attr(data-cost);
+		position: absolute;
+		top: 50%;
+		right: 20px;
+		opacity: 0.7;
+		transform: translateY(-50%);
+	}
+
+	&:disabled,
+	&[aria-busy='true'] {
+		pointer-events: none;
+	}
+
+	&:disabled {
+		opacity: 0.7;
+	}
+
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+.spinner {
+	@include spinner.options(18px, 3px, white);
+}

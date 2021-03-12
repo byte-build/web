@@ -4,6 +4,7 @@ import { Svg } from 'react-optimized-image'
 import Bit from 'models/Bit'
 import getStorageUrl from 'lib/storage/url'
 import formatNumber from 'lib/format/number'
+import formatCost from 'lib/format/cost'
 
 import bitImage from 'images/bit.svg'
 import right from 'images/arrow-right.svg'
@@ -29,7 +30,7 @@ const BitCell = ({ bit }: BitCellProps) => {
 					{formatNumber(bit.bits)}
 				</span>
 				<span className={styles.buy}>
-					${bit.cost / 100}
+					${formatCost(bit.cost)}
 					<Svg className={styles.buyInfo} src={right} />
 				</span>
 			</a>
