@@ -50,5 +50,7 @@ $border-radius: 30px;
 }
 
 .art {
+	flex-shrink: 0;
+	display: block;
 	height: 200px;
 }

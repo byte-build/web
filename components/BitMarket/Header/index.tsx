@@ -1,10 +1,11 @@
 import { useRecoilValue } from 'recoil'
-import { Svg } from 'react-optimized-image'
+import Img, { Svg } from 'react-optimized-image'
 
 import formatNumber from 'lib/format/number'
 import userState from 'state/user'
 
 import bit from 'images/bit.svg'
+import bits from 'images/bits.png'
 
 import styles from './index.module.scss'
 
@@ -21,7 +22,7 @@ const BitMarketHeader = () => {
 					{formatNumber(user?.bits ?? 0)}
 				</p>
 			</article>
-			<Svg className={styles.art} src={bit} />
+			<Img className={styles.art} src={bits} webp />
 		</header>
 	)
 }
