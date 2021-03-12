@@ -8,6 +8,7 @@ import { Svg } from 'react-optimized-image'
 import Bit from 'models/Bit'
 import sleep from 'lib/sleep'
 import getStorageUrl from 'lib/storage/url'
+import logIn from 'lib/auth/logIn'
 import getClientSecret from 'lib/bit/secret'
 import formatNumber from 'lib/format/number'
 import formatCost from 'lib/format/cost'
@@ -52,10 +53,13 @@ const BuyBitsContent = ({ bit: _bit }: BuyBitsContentProps) => {
 	const onSubmit = useCallback(
 		async (event: FormEvent<HTMLFormElement>) => {
 			event.preventDefault()
-			if (!(bit && user && stripe && card)) return
+			if (!(bit && stripe && card)) return
 
 			try {
 				setIsLoading(true)
+
+				const currentUser = user ?? (await logIn())
+				if (!currentUser) return setIsLoading(false)
 
 				const { paymentIntent, error } = await stripe.confirmCardPayment(
 					await getClientSecret(bit.id),
@@ -63,8 +67,8 @@ const BuyBitsContent = ({ bit: _bit }: BuyBitsContentProps) => {
 						payment_method: {
 							card,
 							billing_details: {
-								name: user.name,
-								email: user.email
+								name: currentUser.name,
+								email: currentUser.email
 							}
 						}
 					}
