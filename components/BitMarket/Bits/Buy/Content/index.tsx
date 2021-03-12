@@ -1,10 +1,12 @@
 import { FormEvent, useState, useCallback, useEffect } from 'react'
+import Router from 'next/router'
 import { useRecoilValue } from 'recoil'
 import type { StripeCardElement } from '@stripe/stripe-js'
 import { useStripe } from '@stripe/react-stripe-js'
 import { Svg } from 'react-optimized-image'
 
 import Bit from 'models/Bit'
+import sleep from 'lib/sleep'
 import getStorageUrl from 'lib/storage/url'
 import getClientSecret from 'lib/bit/secret'
 import formatNumber from 'lib/format/number'
@@ -15,6 +17,7 @@ import Card from '../Card'
 import Spinner from 'components/Spinner'
 
 import bitImage from 'images/bit.svg'
+import check from 'images/check-circle.svg'
 
 import styles from './index.module.scss'
 
@@ -25,25 +28,36 @@ export interface BuyBitsContentProps {
 const BuyBitsContent = ({ bit }: BuyBitsContentProps) => {
 	const isShowing = Boolean(bit)
 
-	const id = bit?.id
+	const stripe = useStripe()
 	const user = useRecoilValue(userState)
 
-	const stripe = useStripe()
 	const [card, setCard] = useState<StripeCardElement | null>(null)
 
 	const [isLoading, setIsLoading] = useState(false)
 	const [isDisabled, setIsDisabled] = useState(true)
 
+	const [didSucceed, setDidSucceed] = useState(false)
+
+	const succeed = useCallback(async () => {
+		setDidSucceed(true)
+
+		await sleep(700)
+		Router.push('/bits', undefined, { shallow: true, scroll: false })
+
+		await sleep(300)
+		setDidSucceed(false)
+	}, [setDidSucceed])
+
 	const onSubmit = useCallback(
 		async (event: FormEvent<HTMLFormElement>) => {
 			event.preventDefault()
-			if (!(id && user && stripe && card)) return
+			if (!(bit && user && stripe && card)) return
 
 			try {
 				setIsLoading(true)
 
 				const { paymentIntent, error } = await stripe.confirmCardPayment(
-					await getClientSecret(id),
+					await getClientSecret(bit.id),
 					{
 						payment_method: {
 							card,
@@ -59,13 +73,15 @@ const BuyBitsContent = ({ bit }: BuyBitsContentProps) => {
 
 				if (paymentIntent?.status !== 'succeeded')
 					throw new Error('Unsuccessful payment')
-			} catch (error) {
-				handleError(error)
-			} finally {
+
 				setIsLoading(false)
+				await succeed()
+			} catch (error) {
+				setIsLoading(false)
+				handleError(error)
 			}
 		},
-		[id, user, stripe, card, setIsLoading]
+		[bit, user, stripe, card, setIsLoading, succeed]
 	)
 
 	useEffect(() => {
@@ -94,18 +110,25 @@ const BuyBitsContent = ({ bit }: BuyBitsContentProps) => {
 						{formatNumber(bit?.bits ?? 0)}
 					</p>
 				</article>
-				{id && (
-					<img className={styles.image} src={getStorageUrl(`bits/${id}`)} />
+				{bit && (
+					<img className={styles.image} src={getStorageUrl(`bits/${bit.id}`)} />
 				)}
 			</header>
 			<Card setCard={setCard} />
 			<button
 				className={styles.buy}
-				disabled={isDisabled || !(id && stripe && card)}
+				disabled={isDisabled || !(bit && stripe && card)}
 				aria-busy={isLoading}
+				data-success={didSucceed}
 				data-cost={formatCost(bit?.cost ?? 0)}
 			>
-				{isLoading ? <Spinner className={styles.spinner} /> : 'Buy'}
+				{didSucceed ? (
+					<Svg className={styles.success} src={check} />
+				) : isLoading ? (
+					<Spinner className={styles.spinner} />
+				) : (
+					'Buy'
+				)}
 			</button>
 		</form>
 	)
