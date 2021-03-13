@@ -9,8 +9,10 @@ import styles from './index.module.scss'
 const CreateHackathon: NextPage = () => (
 	<div className={styles.root}>
 		<Pages base="/new" restricted />
-		<Header />
-		<Page />
+		<main className={styles.main}>
+			<Header />
+			<Page />
+		</main>
 	</div>
 )
 

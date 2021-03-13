@@ -1,11 +1,13 @@
 @use 'styles/sizes';
 
 .root {
-	display: grid;
-	grid:
-		'pages header' auto
-		'pages page' 1fr /
-		100px 1fr;
+	display: flex;
+	align-items: stretch;
 	height: calc(100vh - #{sizes.$navbar-height});
+}
+
+.main {
+	flex-grow: 1;
+	padding: 40px;
 	background: #f4f8f9;
 }
