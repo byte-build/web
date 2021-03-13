@@ -5,7 +5,7 @@
 
 	position: relative;
 	height: $height;
-	transition: background 0.3s;
+	transition: background 0.3s, opacity 0.3s;
 
 	&::before {
 		$width: 4px;
@@ -26,6 +26,11 @@
 
 	&[aria-current]::before {
 		opacity: 1;
+	}
+
+	&[aria-disabled] {
+		pointer-events: none;
+		opacity: 0.5;
 	}
 
 	&:hover {

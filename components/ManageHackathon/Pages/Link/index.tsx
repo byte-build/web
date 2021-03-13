@@ -8,14 +8,24 @@ export interface ManageHackathonLinkProps {
 	id: string
 	href: string
 	name: string
+	disabled?: boolean
 }
 
-const ManageHackathonLink = ({ id, href, name }: ManageHackathonLinkProps) => {
+const ManageHackathonLink = ({
+	id,
+	href,
+	name,
+	disabled = false
+}: ManageHackathonLinkProps) => {
 	const current = href === useRouter().asPath
 
 	return (
 		<Link href={href}>
-			<a className={styles.root} aria-current={current ? 'page' : undefined}>
+			<a
+				className={styles.root}
+				aria-disabled={disabled || undefined}
+				aria-current={current ? 'page' : undefined}
+			>
 				<span
 					className={styles.mask}
 					aria-label={name}
