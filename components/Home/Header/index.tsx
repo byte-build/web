@@ -1,7 +1,7 @@
 import Img, { Svg } from 'react-optimized-image'
 
-import person from 'images/home-header-person.svg'
-import art from 'images/home-header-art.png'
+import person from 'images/home/person.svg'
+import art from 'images/home/header-art.png'
 
 import styles from './index.module.scss'
 

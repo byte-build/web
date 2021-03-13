@@ -1,0 +1,11 @@
+@use 'styles/sizes';
+
+.root {
+	display: grid;
+	grid:
+		'pages header' auto
+		'pages page' 1fr /
+		100px 1fr;
+	height: calc(100vh - #{sizes.$navbar-height});
+	background: #f4f8f9;
+}

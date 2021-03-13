@@ -17,8 +17,8 @@ import userState from 'state/user'
 import Card from '../Card'
 import Spinner from 'components/Spinner'
 
-import bitImage from 'images/bit.svg'
-import check from 'images/check-circle.svg'
+import bitImage from 'images/icons/bit.svg'
+import check from 'images/icons/check-circle.svg'
 
 import styles from './index.module.scss'
 

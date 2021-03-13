@@ -4,7 +4,7 @@ import { Svg } from 'react-optimized-image'
 import { HackathonFilterCategory } from 'models/Hackathon/Query'
 import Filter from '../Filter'
 
-import down from 'images/chevron-down.svg'
+import down from 'images/icons/chevron-down.svg'
 
 import styles from './index.module.scss'
 

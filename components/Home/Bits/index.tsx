@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import Img, { Svg } from 'react-optimized-image'
 
-import stars from 'images/stars.svg'
-import shop from 'images/shop.svg'
-import right from 'images/arrow-right.svg'
-import art from 'images/home-bits-art.png'
+import stars from 'images/icons/stars.svg'
+import shop from 'images/icons/shop.svg'
+import right from 'images/icons/arrow-right.svg'
+import art from 'images/home/bits-art.png'
 
 import styles from './index.module.scss'
 

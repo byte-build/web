@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Svg } from 'react-optimized-image'
 import cx from 'classnames'
 
-import bit from 'images/bit.svg'
+import bit from 'images/icons/bit.svg'
 
 import styles from './index.module.scss'
 

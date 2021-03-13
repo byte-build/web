@@ -4,8 +4,8 @@ import Img, { Svg } from 'react-optimized-image'
 import formatNumber from 'lib/format/number'
 import userState from 'state/user'
 
-import bit from 'images/bit.svg'
-import bits from 'images/bits.png'
+import bit from 'images/icons/bit.svg'
+import bits from 'images/bits/header.png'
 
 import styles from './index.module.scss'
 

@@ -6,10 +6,10 @@ import getStorageUrl from 'lib/storage/url'
 import formatNumber from 'lib/format/number'
 import formatDate from 'lib/format/date'
 
-import bit from 'images/bit.svg'
-import date from 'images/date.svg'
-import user from 'images/user.svg'
-import right from 'images/arrow-right.svg'
+import bit from 'images/icons/bit.svg'
+import date from 'images/icons/date.svg'
+import user from 'images/icons/user.svg'
+import right from 'images/icons/arrow-right.svg'
 
 import styles from './index.module.scss'
 
