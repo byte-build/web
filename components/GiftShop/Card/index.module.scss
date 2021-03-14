@@ -1,0 +1,157 @@
+@use 'styles/colors';
+
+.root {
+	flex-shrink: 0;
+	display: flex;
+	height: 270px;
+	margin-top: 20px;
+	padding: 14px;
+	text-decoration: none;
+	color: black;
+	border: 1px solid transparentize(black, 0.9);
+	border-radius: 8px;
+}
+
+.image {
+	flex-shrink: 0;
+	width: 300px;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 4px;
+}
+
+.content {
+	flex-grow: 1;
+	display: grid;
+	grid:
+		'main main' 1fr
+		'info view' auto /
+		auto 1fr;
+	gap: 12px 20px;
+	margin-left: 14px;
+}
+
+.main {
+	grid-area: main;
+	display: flex;
+	flex-direction: column;
+}
+
+.name {
+	flex-shrink: 0;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.subtitle {
+	flex-grow: 1;
+	margin-top: 6px;
+	font-weight: 600;
+	opacity: 0.5;
+}
+
+.info {
+	grid-area: info;
+}
+
+.bits {
+	display: flex;
+	align-items: center;
+	margin-left: 1px;
+	font-weight: 900;
+	color: colors.$purple;
+}
+
+.bit {
+	flex-shrink: 0;
+	height: 26px;
+	margin-right: 8px;
+}
+
+.time {
+	display: flex;
+	align-items: center;
+	margin: 8px 0 0 3px;
+	font-weight: 900;
+}
+
+.timeInfo {
+	flex-shrink: 0;
+	height: 19px;
+	margin-right: 10px;
+}
+
+.participants {
+	display: flex;
+	align-items: center;
+	margin: 8px 0 0 4px;
+	font-weight: 900;
+}
+
+.participant {
+	flex-shrink: 0;
+	height: 19px;
+	margin-right: 10px;
+}
+
+.tags {
+	flex-shrink: 0;
+	display: flex;
+	margin-top: 12px;
+	overflow-x: auto;
+}
+
+.tag {
+	flex-shrink: 0;
+	padding: 6px 12px;
+	font-size: 14px;
+	font-weight: 700;
+	color: colors.$blue;
+	background: transparentize(colors.$blue, 0.9);
+	border-radius: 4px;
+
+	& + & {
+		margin-left: 8px;
+	}
+}
+
+.view {
+	grid-area: view;
+	justify-self: end;
+	align-self: end;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	min-width: 250px;
+	max-width: 300px;
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 700;
+	color: white;
+	background: colors.$blue;
+	border-radius: 4px;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+.viewInfo {
+	$right: 17px;
+	$width: 26px;
+
+	position: absolute;
+	top: 50%;
+	right: $right;
+	width: $width;
+	transform: translateY(-50%);
+	transition: transform 0.3s;
+
+	.view:hover & {
+		transform: translate($right + $width, -50%);
+	}
+}
