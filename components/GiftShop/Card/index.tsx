@@ -12,7 +12,7 @@ const Prizes = () => {
 		<>
 			<Link href="https://adityarawat.me">
 				<a className={styles.root}>
-					<img className={styles.image} src={macbook} loading="lazy" />
+					<img className={styles.image} src={`${macbook}`} loading="lazy" />
 					<span className={styles.content}>
 						<span className={styles.main}>
 							<span className={styles.name}>The Cure</span>
