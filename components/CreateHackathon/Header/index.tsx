@@ -36,7 +36,12 @@ const CreateHackathonHeader = () => {
 	return (
 		<header className={styles.root}>
 			<h1 className={styles.title}>Create Hackathon</h1>
-			<button className={styles.save} onClick={save} aria-busy={isLoading}>
+			<button
+				className={styles.save}
+				onClick={save}
+				disabled={!(state.id && state.name && state.subtitle)}
+				aria-busy={isLoading}
+			>
 				{isLoading ? <Spinner className={styles.spinner} /> : 'Save'}
 			</button>
 		</header>
