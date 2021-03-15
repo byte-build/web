@@ -1,3 +1,4 @@
+@use 'styles/colors';
 @use 'styles/spinner';
 
 .root {
@@ -11,22 +12,22 @@
 .title {
 	font-size: 24px;
 	font-weight: 700;
-	color: black;
+	color: colors.$black;
 	transition: color 0.3s;
 
 	&:hover {
-		color: transparentize(black, 0.5);
+		color: transparentize(colors.$black, 0.4);
 	}
 }
 
 .count {
 	display: inline-flex;
 	align-items: center;
-	color: transparentize(black, 0.5);
+	color: transparentize(colors.$black, 0.4);
 	transition: color 0.3s;
 
 	.title:hover & {
-		color: black;
+		color: colors.$black;
 	}
 }
 

@@ -7,7 +7,7 @@
 	margin-top: 20px;
 	padding: 14px;
 	text-decoration: none;
-	color: black;
+	color: colors.$black;
 	border: 1px solid transparentize(black, 0.9);
 	border-radius: 8px;
 }
@@ -47,7 +47,7 @@
 	flex-grow: 1;
 	margin-top: 6px;
 	font-weight: 600;
-	opacity: 0.5;
+	opacity: 0.6;
 }
 
 .info {
