@@ -29,7 +29,7 @@ const CreateHackathonName = () => {
 			</div>
 			<input
 				id="create-hackathon-name"
-				className={styles.input}
+				className={styles.value}
 				placeholder="My Hackathon"
 				value={name}
 				onChange={onChange}
