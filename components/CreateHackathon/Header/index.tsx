@@ -17,6 +17,17 @@ const CreateHackathonHeader = () => {
 
 	const [isLoading, setIsLoading] = useState(false)
 
+	const isDisabled = !(
+		state.id.value &&
+		!state.id.taken &&
+		state.name &&
+		state.subtitle &&
+		state.bits &&
+		state.skill.length &&
+		state.time.start &&
+		state.time.end
+	)
+
 	const save = useCallback(async () => {
 		try {
 			setIsLoading(true)
@@ -39,7 +50,7 @@ const CreateHackathonHeader = () => {
 			<button
 				className={styles.save}
 				onClick={save}
-				disabled={!(state.id && state.name && state.subtitle)}
+				disabled={isDisabled}
 				aria-busy={isLoading}
 			>
 				{isLoading ? <Spinner className={styles.spinner} /> : 'Save'}

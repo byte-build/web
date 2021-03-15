@@ -65,7 +65,7 @@ const CreateHackathonId = () => {
 		(event: ChangeEvent<HTMLInputElement>) => {
 			setState(state => ({
 				...state,
-				id: { value: toSlug(event.target.value), taken: false }
+				id: { value: toSlug(event.target.value), taken: true }
 			}))
 		},
 		[setState]
