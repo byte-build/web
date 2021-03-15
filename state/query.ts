@@ -20,17 +20,17 @@ const queryState = atom<HackathonQuery>({
 				filters: [
 					{
 						name: 'Beginner',
-						value: 'tags:beginner',
+						value: 'skill:beginner',
 						active: false
 					},
 					{
 						name: 'Intermediate',
-						value: 'tags:intermediate',
+						value: 'skill:intermediate',
 						active: false
 					},
 					{
 						name: 'Advanced',
-						value: 'tags:advanced',
+						value: 'skill:advanced',
 						active: false
 					}
 				]

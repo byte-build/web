@@ -1,3 +1,5 @@
+@use 'styles/colors';
+
 .root {
 	padding: 50px 30px 80px;
 }
@@ -11,6 +13,7 @@
 .title {
 	font-size: 32px;
 	font-weight: 700;
+	color: colors.$black;
 }
 
 .all {
@@ -19,8 +22,8 @@
 	text-decoration: none;
 	font-size: 18px;
 	font-weight: 700;
-	color: black;
-	opacity: 0.5;
+	color: colors.$black;
+	opacity: 0.6;
 	transition: opacity 0.3s;
 
 	&:hover {

@@ -5,7 +5,7 @@ import _logIn from 'lib/auth/logIn'
 import handleError from 'lib/error/handle'
 import Spinner from 'components/Spinner'
 
-import github from 'images/github.svg'
+import github from 'images/icons/github.svg'
 
 import styles from './index.module.scss'
 

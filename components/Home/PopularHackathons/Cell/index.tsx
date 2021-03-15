@@ -2,14 +2,15 @@ import Link from 'next/link'
 import { Svg } from 'react-optimized-image'
 
 import Hackathon from 'models/Hackathon'
+import getTags from 'lib/hackathon/tags'
 import getStorageUrl from 'lib/storage/url'
 import formatNumber from 'lib/format/number'
 import formatDate from 'lib/format/date'
 
-import bit from 'images/bit.svg'
-import date from 'images/date.svg'
-import user from 'images/user.svg'
-import right from 'images/arrow-right.svg'
+import bit from 'images/icons/bit.svg'
+import date from 'images/icons/date.svg'
+import user from 'images/icons/user.svg'
+import right from 'images/icons/arrow-right.svg'
 
 import styles from './index.module.scss'
 
@@ -42,8 +43,8 @@ const HackathonCell = ({ hackathon }: HackathonCellProps) => (
 				</span>
 			</span>
 			<span className={styles.tags}>
-				{hackathon.tags.map(tag => (
-					<span key={tag} className={styles.tag}>
+				{getTags(hackathon).map((tag, index) => (
+					<span key={`${tag}/${index}`} className={styles.tag}>
 						{tag}
 					</span>
 				))}

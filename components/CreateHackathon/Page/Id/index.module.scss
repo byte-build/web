@@ -1,0 +1,75 @@
+@use 'styles/colors';
+@use 'styles/spinner';
+
+.root {
+	max-width: max-content;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 4px;
+	font-size: 14px;
+}
+
+.title {
+	margin-right: 12px;
+	font-weight: 800;
+	color: colors.$black;
+}
+
+.spinner {
+	@include spinner.options(14px, 3px, colors.$pale-blue);
+}
+
+.taken {
+	text-decoration: none;
+	font-weight: 600;
+	color: colors.$red;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+.available {
+	cursor: default;
+	font-weight: 600;
+	color: colors.$green;
+}
+
+.value {
+	display: flex;
+	align-items: center;
+	height: 36px;
+	padding: 0 12px;
+	border: 2px solid #ecf1f5;
+	border-radius: 8px;
+	transition: border-color 0.3s;
+
+	&:hover,
+	&[data-focused='true'] {
+		border-color: colors.$pale-blue;
+	}
+}
+
+.base {
+	cursor: text;
+	font-weight: 700;
+	color: colors.$black;
+}
+
+.input {
+	align-self: stretch;
+	width: 180px;
+	font-size: 16px;
+	font-weight: 600;
+	color: colors.$black;
+	background: none;
+
+	&::placeholder {
+		color: transparentize(colors.$black, 0.6);
+	}
+}

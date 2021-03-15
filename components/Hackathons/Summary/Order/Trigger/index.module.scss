@@ -1,23 +1,25 @@
+@use 'styles/colors';
+
 .root {
 	font-size: 20px;
 	font-weight: 600;
-	color: black;
+	color: colors.$black;
 	background: none;
 	transition: color 0.3s;
 
 	&:hover {
-		color: transparentize(black, 0.5);
+		color: transparentize(colors.$black, 0.4);
 	}
 }
 
 .value {
 	display: inline-flex;
 	align-items: center;
-	color: transparentize(black, 0.5);
+	color: transparentize(colors.$black, 0.4);
 	transition: color 0.3s;
 
 	.root:hover & {
-		color: black;
+		color: colors.$black;
 	}
 }
 

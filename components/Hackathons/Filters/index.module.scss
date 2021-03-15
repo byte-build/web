@@ -1,3 +1,5 @@
+@use 'styles/colors';
+
 .root {
 	grid-area: filters;
 }
@@ -6,4 +8,5 @@
 	margin-bottom: 20px;
 	font-size: 24px;
 	font-weight: 700;
+	color: colors.$black;
 }

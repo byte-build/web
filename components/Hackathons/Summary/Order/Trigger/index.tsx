@@ -4,7 +4,7 @@ import { Svg } from 'react-optimized-image'
 import { ORDERS } from 'models/Hackathon/Order'
 import queryState from 'state/query'
 
-import down from 'images/chevron-down.svg'
+import down from 'images/icons/chevron-down.svg'
 
 import styles from './index.module.scss'
 

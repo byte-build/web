@@ -8,7 +8,7 @@ import {
 } from 'models/Hackathon/Query'
 import queryState from 'state/query'
 
-import check from 'images/check.svg'
+import check from 'images/icons/check.svg'
 
 import styles from './index.module.scss'
 

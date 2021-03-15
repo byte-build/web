@@ -6,8 +6,8 @@ import getStorageUrl from 'lib/storage/url'
 import formatNumber from 'lib/format/number'
 import formatCost from 'lib/format/cost'
 
-import bitImage from 'images/bit.svg'
-import right from 'images/arrow-right.svg'
+import bitImage from 'images/icons/bit.svg'
+import right from 'images/icons/arrow-right.svg'
 
 import styles from './index.module.scss'
 

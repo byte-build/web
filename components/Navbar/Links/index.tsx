@@ -5,9 +5,9 @@ import { Svg } from 'react-optimized-image'
 import formatNumber from 'lib/format/number'
 import userState from 'state/user'
 
-import shop from 'images/shop.svg'
-import bit from 'images/bit.svg'
-import plus from 'images/plus.svg'
+import shop from 'images/icons/shop.svg'
+import bit from 'images/icons/bit.svg'
+import plus from 'images/icons/plus.svg'
 
 import styles from './index.module.scss'
 

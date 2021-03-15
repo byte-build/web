@@ -12,6 +12,7 @@
 		"@stripe/react-stripe-js": "^1.4.0",
 		"@stripe/stripe-js": "^1.13.1",
 		"algoliasearch": "^4.8.6",
+		"balloon-css": "^1.2.0",
 		"classnames": "^2.2.6",
 		"csp-header": "^2.1.2",
 		"firebase": "^8.2.10",

@@ -5,8 +5,8 @@ import { Svg } from 'react-optimized-image'
 
 import queryState from 'state/query'
 
-import search from 'images/search.svg'
-import plus from 'images/plus.svg'
+import search from 'images/icons/search.svg'
+import plus from 'images/icons/plus.svg'
 
 import styles from './index.module.scss'
 

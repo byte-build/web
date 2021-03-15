@@ -4,10 +4,13 @@ export default interface Hackathon {
 	subtitle: string
 	bits: number
 	participants: number
+	skill: HackathonSkill[]
 	tags: string[]
 	time: HackathonTime
 	admins: Record<string, HackathonAdmin>
 }
+
+export type HackathonSkill = 'beginner' | 'intermediate' | 'advanced'
 
 export interface HackathonTime {
 	start: Date

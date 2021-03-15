@@ -5,7 +5,7 @@ import { Svg } from 'react-optimized-image'
 import HackathonOrder from 'models/Hackathon/Order'
 import queryState from 'state/query'
 
-import check from 'images/check.svg'
+import check from 'images/icons/check.svg'
 
 import styles from './index.module.scss'
 

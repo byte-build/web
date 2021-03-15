@@ -6,7 +6,7 @@ import HackathonData from 'models/Hackathon/Data'
 import hackathonFromData from 'lib/hackathon/from/data'
 import Cell from './Cell'
 
-import right from 'images/arrow-right.svg'
+import right from 'images/icons/arrow-right.svg'
 
 import styles from './index.module.scss'
 
