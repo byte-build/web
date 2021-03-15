@@ -1,0 +1,66 @@
+@use 'styles/colors';
+@use 'styles/spinner';
+
+.root {
+	max-width: max-content;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 4px;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.title {
+	margin-right: 12px;
+}
+
+.spinner {
+	@include spinner.options(16px, 3px, colors.$purple);
+}
+
+.taken {
+	text-decoration: none;
+	color: colors.$red;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+.available {
+	cursor: default;
+	color: colors.$green;
+}
+
+.value {
+	display: flex;
+	align-items: center;
+	height: 36px;
+	padding: 0 12px;
+	background: transparentize(colors.$purple, 0.9);
+	border-radius: 8px;
+}
+
+.base {
+	cursor: text;
+	font-weight: 700;
+	color: colors.$purple;
+}
+
+.input {
+	align-self: stretch;
+	width: 180px;
+	font-size: 16px;
+	font-weight: 600;
+	color: colors.$purple;
+	background: none;
+
+	&::placeholder {
+		color: transparentize(colors.$purple, 0.7);
+	}
+}

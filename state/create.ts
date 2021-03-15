@@ -1,17 +1,17 @@
 import { atom } from 'recoil'
 
-export interface CreateHackathonState {
-	id: string
-	name: string
-	subtitle: string
-}
+import CreateHackathonData from 'models/Hackathon/Create'
 
-const createHackathonState = atom<CreateHackathonState>({
+const createHackathonState = atom<CreateHackathonData>({
 	key: 'create',
 	default: {
-		id: '',
+		id: { value: '', taken: false },
 		name: '',
-		subtitle: ''
+		subtitle: '',
+		bits: 0,
+		skill: [],
+		tags: [],
+		time: { start: null, end: null }
 	}
 })
 
