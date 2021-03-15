@@ -4,6 +4,7 @@ export default interface CreateHackathonData {
 	id: CreateHackathonId
 	name: string
 	subtitle: string
+	description: string
 	bits: number
 	skill: HackathonSkill[]
 	tags: string[]
