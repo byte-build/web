@@ -1,19 +1,16 @@
-import { NextPage } from 'next'
+import { ReactNode } from 'react'
 
-import Pages from 'components/ManageHackathon/Pages'
-import Header from './Header'
-import Page from './Page'
+import ManageHackathon from 'components/ManageHackathon'
 
-import styles from './index.module.scss'
+export interface CreateHackathonProps {
+	className?: string
+	children?: ReactNode
+}
 
-const CreateHackathon: NextPage = () => (
-	<div className={styles.root}>
-		<Pages base="/new" restricted />
-		<main className={styles.main}>
-			<Header />
-			<Page />
-		</main>
-	</div>
+const CreateHackathon = ({ className, children }: CreateHackathonProps) => (
+	<ManageHackathon className={className} base="/new" restricted>
+		{children}
+	</ManageHackathon>
 )
 
 export default CreateHackathon

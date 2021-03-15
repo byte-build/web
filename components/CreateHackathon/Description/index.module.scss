@@ -1,0 +1,26 @@
+@use 'styles/sizes';
+
+.root :global {
+	.ck.ck-toolbar {
+		background: none !important;
+		border: none !important;
+		border-bottom: 1px solid #f1f1f1 !important;
+		border-radius: 0 !important;
+
+		&__separator {
+			margin: 8px !important;
+		}
+	}
+
+	.ck.ck-content {
+		height: calc(100vh - #{sizes.$navbar-height + 38.67px});
+		border: none !important;
+		border-radius: 0 !important;
+		box-shadow: none !important;
+	}
+
+	.ck.ck-button__label {
+		overflow: visible !important;
+		line-height: 1.15 !important;
+	}
+}
