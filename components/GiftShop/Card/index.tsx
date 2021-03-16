@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { Svg } from 'react-optimized-image'
 
-import bit from 'images/bit.svg'
-import right from 'images/arrow-right.svg'
+import bit from 'images/icons/bit.svg'
+import right from 'images/icons/arrow-right.svg'
 import macbook from 'images/macbook.svg'
 
 import styles from './index.module.scss'

@@ -4,9 +4,9 @@ import Img, { Svg } from 'react-optimized-image'
 import formatNumber from 'lib/format/number'
 import userState from 'state/user'
 
-import bit from 'images/bit.svg'
+import bit from 'images/icons/bit.svg'
 import macbook from 'images/macbook.svg'
-import right from 'images/arrow-right.svg'
+import right from 'images/icons/arrow-right.svg'
 
 import styles from './index.module.scss'
 
