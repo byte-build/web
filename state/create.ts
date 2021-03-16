@@ -5,6 +5,8 @@ import CreateHackathonData from 'models/Hackathon/Create'
 const createHackathonState = atom<CreateHackathonData>({
 	key: 'create',
 	default: {
+		header: null,
+		icon: null,
 		id: { value: '', taken: true },
 		name: '',
 		subtitle: '',

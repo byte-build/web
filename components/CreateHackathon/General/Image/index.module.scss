@@ -1,0 +1,59 @@
+@use 'styles/colors';
+
+.header:hover,
+.icon:hover,
+.dragging {
+	transform: translateY(-2px);
+}
+
+.header,
+.icon {
+	cursor: pointer;
+	display: flex;
+	position: relative;
+	overflow: hidden;
+	background: #f9f9f9;
+	border: 1px solid #eee;
+	border-radius: 8px;
+	transition: transform 0.3s;
+}
+
+.header {
+	height: 300px;
+}
+
+.icon {
+	$width: 370px;
+	$height: 200px;
+
+	max-width: $width;
+	height: $height;
+	margin: (-$height / 2) 0 0 ($width / 2);
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.upload {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	padding: 30px;
+}
+
+.uploadIcon {
+	height: 50px;
+	margin: -8px 0;
+	color: colors.$black;
+}
+
+.uploadInfo {
+	margin-top: 8px;
+	font-weight: 600;
+	color: colors.$black;
+}

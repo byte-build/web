@@ -13,7 +13,12 @@ const ManageHackathonPages = ({
 }: ManageHackathonPagesProps) => (
 	<aside className={styles.root}>
 		<Link id="general" href={base} name="General" />
-		<Link id="description" href={`${base}/description`} name="Description" />
+		<Link
+			id="description"
+			href={`${base}/description`}
+			name="Description"
+			disabled={restricted}
+		/>
 		<Link
 			id="organizers"
 			href={`${base}/organizers`}

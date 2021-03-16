@@ -1,7 +1,7 @@
 /* eslint-env node */
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-const { getCSP, SELF, INLINE, DATA, EVAL } = require('csp-header')
+const { getCSP, SELF, INLINE, DATA, BLOB, EVAL } = require('csp-header')
 
 const DEV = process.env.NODE_ENV === 'development'
 
@@ -39,6 +39,7 @@ module.exports = require('next-optimized-images')({
 							'img-src': [
 								SELF,
 								DATA,
+								BLOB,
 								'https://www.google.com',
 								`https://storage.googleapis.com/${process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET}/`,
 								'https://avatars.githubusercontent.com'

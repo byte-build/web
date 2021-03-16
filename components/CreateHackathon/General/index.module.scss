@@ -1,3 +1,5 @@
+@use 'styles/colors';
+
 .root {
 	overflow-y: auto;
 	padding: 40px;
@@ -10,4 +12,11 @@
 	background: white;
 	box-shadow: 0 0 30px -10px transparentize(black, 0.9);
 	border-radius: 8px;
+}
+
+.section {
+	margin-top: 20px;
+	padding-bottom: 4px;
+	color: colors.$black;
+	border-bottom: 1px solid #eee;
 }
