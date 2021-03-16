@@ -48,7 +48,16 @@ module.exports = require('next-optimized-images')({
 								SELF,
 								`https://${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}.firebaseapp.com`,
 								'https://js.stripe.com',
-								'https://hooks.stripe.com'
+								'https://hooks.stripe.com',
+								'https://www.dailymotion.com/embed/video/',
+								'https://open.spotify.com/embed/',
+								'https://www.youtube.com/embed/',
+								'https://player.vimeo.com/video/',
+								'https://www.instagram.com/',
+								'https://twitter.com/',
+								'https://www.google.com/maps/',
+								'https://flickr.com/',
+								'https://www.facebook.com/'
 							],
 							'base-uri': SELF,
 							'upgrade-insecure-requests': !DEV

@@ -44,6 +44,13 @@
 	border: none !important;
 	border-radius: 0 !important;
 	box-shadow: none !important;
+
+	ul,
+	ol {
+		margin-block-start: 1em !important;
+		margin-block-end: 1em !important;
+		padding-inline-start: 40px !important;
+	}
 }
 
 .ck-button {
@@ -54,10 +61,11 @@
 		overflow: visible !important;
 		line-height: 1.15 !important;
 	}
+}
 
-	&:disabled {
-		cursor: default !important;
-	}
+.ck-button:disabled,
+.ck-disabled {
+	cursor: default !important;
 }
 
 .ck-splitbutton {

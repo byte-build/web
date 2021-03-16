@@ -22,6 +22,7 @@ const CreateHackathonDescription: NextPage = () => {
 		<CreateHackathon className={styles.root}>
 			<Editor
 				placeholder="Description"
+				uploadPath={`hackathons/abc/description`}
 				autoFocus
 				value={description}
 				setValue={setDescription}

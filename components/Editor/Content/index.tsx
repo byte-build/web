@@ -1,6 +1,8 @@
+import { useMemo, useCallback } from 'react'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import build from 'byte-ckeditor'
-import { useCallback, useMemo } from 'react'
+
+import UploadAdapterPlugin from 'models/UploadAdapter'
 
 interface EditorModel {
 	focus(): void
@@ -9,6 +11,7 @@ interface EditorModel {
 
 export interface EditorProps {
 	placeholder?: string
+	uploadPath: string
 	autoFocus?: boolean
 	value: string
 	setValue(value: string): void
@@ -16,11 +19,19 @@ export interface EditorProps {
 
 const Editor = ({
 	placeholder,
+	uploadPath,
 	autoFocus = false,
 	value,
 	setValue
 }: EditorProps) => {
-	const config = useMemo(() => ({ placeholder }), [placeholder])
+	const config = useMemo(
+		() => ({
+			placeholder,
+			uploadPath,
+			extraPlugins: [UploadAdapterPlugin]
+		}),
+		[placeholder, uploadPath]
+	)
 
 	const onReady = useCallback(
 		(editor: EditorModel) => {
