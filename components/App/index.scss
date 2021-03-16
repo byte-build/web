@@ -45,6 +45,18 @@ code {
 	font-family: OperatorMono, monospace !important;
 }
 
+input {
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	&[type='number'] {
+		-moz-appearance: textfield;
+	}
+}
+
 .Toastify__toast {
 	padding-left: 16px !important;
 	font-family: inherit !important;
