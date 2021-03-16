@@ -12,9 +12,9 @@
 	display: flex;
 	position: relative;
 	overflow: hidden;
-	background: #f9f9f9;
-	border: 1px solid #eee;
+	background: white;
 	border-radius: 8px;
+	box-shadow: 0 0 5px 0 transparentize(black, 0.9);
 	transition: transform 0.3s;
 }
 
