@@ -39,6 +39,7 @@ module.exports = require('next-optimized-images')({
 							'img-src': [
 								SELF,
 								DATA,
+								'https://www.google.com',
 								`https://storage.googleapis.com/${process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET}/`,
 								'https://avatars.githubusercontent.com'
 							],

@@ -8,7 +8,6 @@ import Config from 'components/App'
 import Navbar from 'components/Navbar'
 
 import 'components/App/index.scss'
-import 'components/Progress/index.scss'
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => (
 	<>

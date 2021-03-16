@@ -1,0 +1,164 @@
+@use 'styles/colors';
+@use 'styles/z-index';
+
+:root {
+	--ck-color-toolbar-background: none !important;
+	--ck-color-button-default-hover-background: #f1f1f1 !important;
+	--ck-color-list-button-hover-background: #f1f1f1 !important;
+	--ck-color-split-button-hover-background: #fafafa !important;
+
+	--ck-color-button-on-background: #eee !important;
+	--ck-color-button-on-hover-background: #ddd !important;
+
+	--ck-color-engine-placeholder-text: #{transparentize(colors.$black, 0.6)} !important;
+
+	--ck-border-radius: 8px !important;
+}
+
+.ck-toolbar {
+	&_grouping {
+		border: none !important;
+		border-bottom: 1px solid #f1f1f1 !important;
+		border-radius: 0 !important;
+	}
+
+	&_vertical .ck-toolbar__items {
+		flex-direction: row !important;
+		flex-flow: row !important;
+
+		.ck-button {
+			border-radius: var(--ck-border-radius) !important;
+		}
+
+		.ck-button + .ck-button {
+			margin-left: 4px !important;
+		}
+	}
+
+	&__separator {
+		margin: 8px !important;
+	}
+}
+
+.ck-content {
+	border: none !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+}
+
+.ck-button {
+	cursor: pointer !important;
+	transition: background 0.3s !important;
+
+	&__label {
+		overflow: visible !important;
+		line-height: 1.15 !important;
+	}
+
+	&:disabled {
+		cursor: default !important;
+	}
+}
+
+.ck-splitbutton {
+	overflow: hidden !important;
+}
+
+.ck-color-table__remove-color {
+	border: none !important;
+	border-radius: var(--ck-border-radius) !important;
+}
+
+.ck-dropdown {
+	&__button {
+		border-radius: var(--ck-border-radius) !important;
+	}
+
+	&__panel {
+		display: block !important;
+		max-width: none !important;
+		margin-top: 8px !important;
+		padding: 8px !important;
+		background: white !important;
+		border: none !important;
+		border-radius: var(--ck-border-radius) !important;
+		box-shadow: 0 0 20px 5px transparentize(black, 0.9) !important;
+		pointer-events: none !important;
+		opacity: 0 !important;
+		transform: translateX(-20px) !important;
+		transition: opacity 0.15s, transform 0.15s !important;
+
+		&-visible {
+			pointer-events: all !important;
+			opacity: 1 !important;
+			transform: none !important;
+		}
+
+		.ck-list__item {
+			.ck-button {
+				border-radius: var(--ck-border-radius) !important;
+			}
+		}
+
+		.ck-list__item + .ck-list__item {
+			margin-top: 4px !important;
+		}
+	}
+}
+
+.ck-balloon-panel {
+	display: block !important;
+	border: none !important;
+	box-shadow: 0 0 20px 5px transparentize(black, 0.9) !important;
+	pointer-events: none !important;
+	opacity: 0 !important;
+	transform: translateX(-20px) !important;
+	transition: opacity 0.15s, transform 0.15s !important;
+
+	&_visible {
+		pointer-events: all !important;
+		opacity: 1 !important;
+		transform: none !important;
+	}
+
+	&::before {
+		border-bottom-color: transparent !important;
+	}
+}
+
+.ck-label {
+	overflow: visible !important;
+	line-height: 1.15 !important;
+	color: transparentize(colors.$black, 0.6) !important;
+}
+
+.ck-input {
+	color: colors.$black !important;
+
+	&:not(.ck-input_focused) {
+		border: 1px solid var(--ck-color-base-border) !important;
+	}
+}
+
+.ck-link-actions__preview {
+	display: inline-flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+}
+
+.ck-button__toggle__inner {
+	border-radius: 50% !important;
+}
+
+.ck-list__separator {
+	margin: 8px 0 !important;
+}
+
+.ck-input-color__button {
+	border-radius: 0 var(--ck-border-radius) var(--ck-border-radius) 0 !important;
+}
+
+.ck-input-color__remove-color {
+	border: none !important;
+	border-radius: var(--ck-border-radius) !important;
+}

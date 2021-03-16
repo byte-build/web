@@ -1,5 +1,8 @@
-@use '~react-toastify/dist/ReactToastify';
-@use '~balloon-css/src/balloon';
+@use '~react-toastify/dist/ReactToastify' as *;
+@use '~balloon-css/src/balloon' as *;
+
+@use 'components/Progress' as *;
+@use 'components/Editor' as *;
 
 @use 'styles/sizes';
 

@@ -1,6 +1,6 @@
 @use 'styles/sizes';
 
-$pages-width: 100px;
+$pages-width: sizes.$manage-hackathon-pages-width;
 
 .root {
 	display: grid;
@@ -11,4 +11,5 @@ $pages-width: 100px;
 
 .main {
 	flex-grow: 1;
+	overflow-x: hidden;
 }
