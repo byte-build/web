@@ -3,6 +3,7 @@ import { SetterOrUpdater, useRecoilState } from 'recoil'
 import Link from 'next/link'
 import throttle from 'lodash/throttle'
 
+import { ID_MAX_LENGTH } from 'models/Hackathon'
 import CreateHackathonData from 'models/Hackathon/Create'
 import toSlug from 'lib/slug/to'
 import isHackathonIdTaken from 'lib/hackathon/id/isTaken'
@@ -65,7 +66,10 @@ const CreateHackathonId = () => {
 		(event: ChangeEvent<HTMLInputElement>) => {
 			setState(state => ({
 				...state,
-				id: { value: toSlug(event.target.value), taken: true }
+				id: {
+					value: toSlug(event.target.value).slice(0, ID_MAX_LENGTH),
+					taken: true
+				}
 			}))
 		},
 		[setState]

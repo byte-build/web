@@ -13,12 +13,12 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => (
 	<>
 		<Head>
 			<link
-				key="font-preconnect"
+				key="google-fonts-preconnect"
 				rel="preconnect"
 				href="https://fonts.gstatic.com"
 			/>
 			<link
-				key="font"
+				key="main-font"
 				rel="stylesheet"
 				href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
 			/>

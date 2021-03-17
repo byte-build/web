@@ -1,5 +1,10 @@
+export const ID_MAX_LENGTH = 50
+
 export const NAME_MAX_LENGTH = 100
 export const SUBTITLE_MAX_LENGTH = 350
+
+export const TAGS_MAX_LENGTH = 10
+export const TAG_MAX_LENGTH = 50
 
 export default interface Hackathon {
 	id: string

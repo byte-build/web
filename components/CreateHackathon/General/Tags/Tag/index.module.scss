@@ -1,0 +1,24 @@
+@use 'styles/colors';
+
+$spacing: 8px;
+
+.root {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	margin: 0 8px 8px 0;
+	padding: 6px 8px 6px 12px;
+	white-space: nowrap;
+	line-height: 1.15;
+	font-size: 14px;
+	font-weight: 700;
+	color: colors.$blue;
+	background: transparentize(colors.$blue, 0.9);
+	border-radius: 4px;
+}
+
+.remove {
+	flex-shrink: 0;
+	height: 18px;
+	margin-left: 8px;
+}
