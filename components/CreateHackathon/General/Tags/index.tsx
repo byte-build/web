@@ -48,7 +48,7 @@ const CreateHackathonTags = () => {
 				<form className={styles.form} onSubmit={onSubmit}>
 					<input
 						className={styles.input}
-						placeholder="amazing hackathon"
+						placeholder="add tag"
 						value={name}
 						onChange={onChange}
 					/>
