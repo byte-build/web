@@ -6,7 +6,6 @@ import Image from './Image'
 import Id from './Id'
 import Name from './Name'
 import Subtitle from './Subtitle'
-import Bits from './Bits'
 import Skill from './Skill'
 import Tags from './Tags'
 import Time from './Time'
@@ -22,7 +21,6 @@ const CreateHackathonGeneral: NextPage = () => (
 			<Id />
 			<Name />
 			<Subtitle />
-			<Bits />
 			<h2 className={styles.section}>Skill</h2>
 			<Skill />
 			<h2 className={styles.section}>Tags</h2>

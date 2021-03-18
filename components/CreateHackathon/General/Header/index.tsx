@@ -22,7 +22,6 @@ const CreateHackathonHeader = () => {
 		!state.id.taken &&
 		state.name &&
 		state.subtitle &&
-		state.bits &&
 		state.skill.length &&
 		state.time.start &&
 		state.time.end

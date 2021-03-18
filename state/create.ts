@@ -10,7 +10,6 @@ const createHackathonState = atom<CreateHackathonData>({
 		id: { value: '', taken: true },
 		name: '',
 		subtitle: '',
-		bits: 100,
 		skill: [],
 		tags: [],
 		time: { start: null, end: null }
