@@ -12,7 +12,6 @@ const createHackathon = async (data: CreateHackathonData, user: User) => {
 	await firestore.doc(`hackathons/${data.id.value}`).set({
 		name: data.name,
 		subtitle: data.subtitle,
-		bits: data.bits,
 		participants: 0,
 		skill: data.skill,
 		tags: data.tags,
