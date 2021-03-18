@@ -5,7 +5,12 @@ const { getCSP, SELF, INLINE, DATA, BLOB, EVAL } = require('csp-header')
 
 const DEV = process.env.NODE_ENV === 'development'
 
-module.exports = require('next-optimized-images')({
+const plugins = [
+	[require('next-optimized-classnames')],
+	[require('next-optimized-images')]
+]
+
+const config = {
 	headers: () => [
 		{
 			source: '/(.*)',
@@ -77,4 +82,6 @@ module.exports = require('next-optimized-images')({
 			]
 		}
 	]
-})
+}
+
+module.exports = require('next-compose-plugins')(plugins, config)

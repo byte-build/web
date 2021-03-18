@@ -9,6 +9,7 @@ import Subtitle from './Subtitle'
 import Bits from './Bits'
 import Skill from './Skill'
 import Tags from './Tags'
+import Time from './Time'
 
 import styles from './index.module.scss'
 
@@ -26,6 +27,8 @@ const CreateHackathonGeneral: NextPage = () => (
 			<Skill />
 			<h2 className={styles.section}>Tags</h2>
 			<Tags />
+			<h2 className={styles.section}>Planning</h2>
+			<Time />
 		</section>
 	</CreateHackathon>
 )
